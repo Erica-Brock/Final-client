@@ -40,7 +40,5 @@ automated messaging  for payment confirmations (Twilio, ?)
 #Optional addons
 Portfolio where gig users can post before and after pictures of their work in
 
-**Bid on a job (I don't know if this is something we would want to integrate into the app or not)
-        They need to be able to post a completion time range and how much they will charge to complete the job.
 
 
