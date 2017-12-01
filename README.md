@@ -1,27 +1,44 @@
-# Client
+#DATABASE:
+Users table (mySQL, JAKE)
+Jobs table(mySQL, Jake)
+stored prpcedures (mySQL, Jake)
+Rating/Review Table (mySql, Jake),
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.7.
 
-## Development server
+#Server:
+CRUD+ALL for Users (Node.js and Express, ?)
+CRUD+ALL for Jobs (Node.js and Express, ?)
+automated messaging  for payment confirmations (Twilio, ?)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#User Interface:
+#Search Database:
+        Gig Makers:
+    search for proffesionals(Algolia/ Node.js/ Express/ Angular form, ?)
+        Gig Takers:
+    search for jobs (Algolia/ Node.js/ Express/ Angular form, ?)
+#Messaging Users
+    messaging (Kandy/?/Angular form, ?) 
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##create a profile( Angular form, ?)
+    
+##Create a new job (Angular form, ?)
+    Post pictures of job(optional)
+    post a desciption of the job (text area to write a description)
+    Post a budget for the job
+    Post a need by date and time
+        schedule a job (google calendar Api)
+    make payments on the job
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Rate and review the gig takers and makers (Angular Form, ?)
+    (option to rate the gig taker should pop up after payment has been made
+    option to rate and review the gig maker should come with the payment confirmation for the gig taker)
+        should be a popup
+        5 star rating system
+        textarea to write a review
+#Optional addons
+Portfolio where gig users can post before and after pictures of their work in
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
