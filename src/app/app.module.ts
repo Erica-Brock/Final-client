@@ -6,6 +6,7 @@ import { SigninComponent } from './views/signin/signin.component';
 import { UserComponent } from './views/user/user.component';
 import { MatchingComponent } from './views/matching/matching.component';
 import { SearchComponent } from './forms/search/search.component';
+import { OktaService } from './services/okta.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { SearchComponent } from './forms/search/search.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [OktaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
