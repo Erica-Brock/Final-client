@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SigninComponent } from './views/signin/signin.component';
@@ -30,6 +31,8 @@ const routes: Routes = [
     component: ProfileComponent
   }
 ]
+import { MapComponent } from './map/map.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,17 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MapComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyCD9OJOP9rkatl5IE0F42UjystaJYS-rBI',
+      libraries: [
+        'places'
+      ]
+    }),
   ],
   providers: [OktaService],
   bootstrap: [AppComponent]
