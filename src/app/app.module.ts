@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { SigninComponent } from './views/signin/signin.component';
@@ -10,6 +11,7 @@ import { MatchingComponent } from './views/matching/matching.component';
 import { SearchComponent } from './forms/search/search.component';
 import { OktaService } from './services/okta.service';
 import { ProfileComponent } from './views/profile/profile.component';
+
 
 const routes: Routes = [
 
@@ -57,9 +59,10 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyCD9OJOP9rkatl5IE0F42UjystaJYS-rBI',
       libraries: [
-        'places'
+        'places',
       ]
     }),
+    
   ],
   providers: [OktaService],
   bootstrap: [AppComponent]
