@@ -1,0 +1,12 @@
+#search-box, #pagination, #hitsPer{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.item{
+   border: 1px solid black!important;
+}
+
+.img {
+    width: 50px;
+}
