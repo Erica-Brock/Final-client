@@ -12,6 +12,7 @@ export class MapComponent implements OnInit {
   lat:number;
   lng: number;
   searchControl: FormControl;
+  originControl: FormControl;
   zoom: number;
   places:any;
   @ViewChild("search")
@@ -28,6 +29,7 @@ export class MapComponent implements OnInit {
     this.lat=39.8282;
     this.lng= -98.5795;
     this.searchControl= new FormControl();
+    this.originControl= new FormControl();
     //set current position
     this.setCurrentPosition();
     
@@ -60,7 +62,7 @@ export class MapComponent implements OnInit {
           navigator.geolocation.getCurrentPosition((position) => {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
-            this.zoom = 12;
+            this.zoom = 15;
           });
         }
       }

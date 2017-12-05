@@ -41,12 +41,12 @@ import { AgmCoreModule } from '@agm/core';
     UserComponent,
     MatchingComponent,
     SearchComponent,
+    MapComponent,
     ProfileComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    MapComponent,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
