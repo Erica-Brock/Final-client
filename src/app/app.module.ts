@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: "profile/:id",
     component: ProfileComponent
+  },
+  {
+    path: "map",
+    component: MapComponent
   }
 ]
 import { MapComponent } from './map/map.component';
