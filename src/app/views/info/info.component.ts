@@ -5,7 +5,7 @@ import {MaterializeModule} from '../../materialize/materialize.module';
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
-  styleUrls: ['./info.component.css']
+  styleUrls: ['./info.component.scss']
 })
 export class InfoComponent implements OnInit {
 

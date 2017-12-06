@@ -6,7 +6,7 @@ import { SigninService } from '../../services/signin/signin.service';
 @Component({
   selector: 'app-loginform',
   templateUrl: './loginform.component.html',
-  styleUrls: ['./loginform.component.css']
+  styleUrls: ['./loginform.component.scss']
 })
 export class LoginformComponent implements OnInit {
   loginForm: FormGroup

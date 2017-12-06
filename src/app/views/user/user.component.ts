@@ -8,7 +8,7 @@ import { MaterializeModule } from '../../materialize/materialize.module';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
   @ViewChild('button') btn: ElementRef;
