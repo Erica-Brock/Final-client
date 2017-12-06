@@ -1,13 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MzBadgeModule} from 'ng2-materialize'
+import {
+  MzParallaxModule,
+  MzNavbarModule,
+  MzNavbarItemContainerComponent
+
+} from 'ng2-materialize'
 
 
 @NgModule({
   imports: [
     CommonModule,
-    MzBadgeModule
+    MzParallaxModule,
+    MzNavbarModule
   ],
-  declarations: []
+  exports: [
+    MzParallaxModule,
+    MzNavbarModule
+   
+  ]
 })
 export class MaterializeModule { }
