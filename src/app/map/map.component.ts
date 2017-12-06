@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { MapsAPILoader } from '@agm/core';
+
 import {} from '@types/googlemaps';
 
 @Component({
@@ -30,7 +30,6 @@ export class MapComponent implements OnInit {
   map;
 
   constructor(
-    private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
   ) { }
 
