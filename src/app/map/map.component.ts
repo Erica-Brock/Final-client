@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
   @ViewChild('panel')
   public panelElement: ElementRef;
 
-  infoWindow = new google.maps.InfoWindow
+  infoWindow = new google.maps.InfoWindow();
   directionsDisplay = new google.maps.DirectionsRenderer();
   directionsService = new google.maps.DirectionsService();
   map;
@@ -39,7 +39,7 @@ export class MapComponent implements OnInit {
 
   constructor(
     private ngZone: NgZone,
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.myLocation = new google.maps.LatLng(33.543682, -86.779633);
