@@ -2,13 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component';
 import { SigninComponent } from './views/signin/signin.component';
 import { UserComponent } from './views/user/user.component';
 import { MatchingComponent } from './views/matching/matching.component';
 import { SearchComponent } from './forms/search/search.component';
-import { OktaService } from './services/okta.service';
 import { ProfileComponent } from './views/profile/profile.component';
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
@@ -16,8 +17,9 @@ import { JobComponent } from './views/job/job.component';
 import { JobsService } from "./services/jobs.service";
 import { UsersService } from './services/users.service';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PaymentComponent } from './views/payment/payment.component';
+import { LoginformComponent } from './forms/loginform/loginform.component';
+import { SigninService } from './services/signin/signin.service';
 
 
 const routes: Routes = [
@@ -46,9 +48,12 @@ const routes: Routes = [
   {
     path: "payment",
     component: PaymentComponent
+  },
+  {
+    path: "map",
+    component: MapComponent
   }
 ]
-
 
 @NgModule({
   declarations: [
@@ -60,8 +65,8 @@ const routes: Routes = [
     MapComponent,
     ProfileComponent,
     JobComponent,
-    PaymentComponent
-   
+    PaymentComponent,
+    LoginformComponent
   ],
   imports: [
     BrowserModule,
@@ -71,14 +76,15 @@ const routes: Routes = [
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    AgmCoreModule.forRoot({
-      apiKey:'AIzaSyCD9OJOP9rkatl5IE0F42UjystaJYS-rBI',
-      libraries: [
-        'places'
-      ]
-    }),
   ],
-  providers: [OktaService, UsersService, JobsService],
+  providers: [
+    UsersService, 
+    JobsService,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    BrowserModule,
+    SigninService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
