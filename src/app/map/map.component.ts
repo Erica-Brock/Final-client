@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject, ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
+import { JobsService } from '../services/jobs.service'
+
 import { } from '@types/googlemaps';
 
 @Component({
@@ -36,12 +38,16 @@ export class MapComponent implements OnInit {
   map;
   panel;
   pos;
+  jobs;
 
   constructor(
     private ngZone: NgZone,
+    private jobSvc: JobsService
   ) { }
 
   ngOnInit() {
+    this.getJobs();
+    console.log(this.jobs)
     this.myLocation = new google.maps.LatLng(33.543682, -86.779633);
     this.mapOptions = {
       zoom: 7,
@@ -101,4 +107,8 @@ export class MapComponent implements OnInit {
       "Error: Your browser doesn't support geolocation." );
     infoWindow.open(this.map);
   }
+  getJobs(){
+    this.jobSvc.getJobs()
+  .subscribe((response =>this.jobs =response)
+}
 }
