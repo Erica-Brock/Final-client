@@ -20,6 +20,7 @@ import { HttpModule } from '@angular/http';
 import { PaymentComponent } from './views/payment/payment.component';
 import { LoginformComponent } from './forms/loginform/loginform.component';
 import { SigninService } from './services/signin/signin.service';
+import { InfoComponent } from './views/info/info.component';
 
 
 const routes: Routes = [
@@ -66,7 +67,8 @@ const routes: Routes = [
     ProfileComponent,
     JobComponent,
     PaymentComponent,
-    LoginformComponent
+    LoginformComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
