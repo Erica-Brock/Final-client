@@ -8,10 +8,31 @@
     margin: 0 auto;
 }
 
-.item{
-   border: 1px solid black!important;
+button {
+    margin: 0 5em;
 }
 
-.img {
-    width: 50px;
+>>> .app-search-box-input {
+    padding-left: 40px!important;
+  } 
+>>> .app-hits {
+     margin: 0 5em;
+ }
+>>> .app-hits-item {
+    border-bottom: 3px solid darkgreen;
+}
+>>>.app-hits-item img {
+    width: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+>>>.app-hits-item span { 
+    display: inline-block;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+>>>.app-pagination {
+    border: none;
+    box-shadow: none;
 }

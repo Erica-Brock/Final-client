@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer } from '@angular/cor
 import instantsearch from 'instantsearch.js/es';
 import { searchBox, hits, pagination, hitsPerPageSelector, clearAll } from 'instantsearch.js/es/widgets';
 import { environment, environment2 } from "../../enviroment";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user',
@@ -14,7 +15,9 @@ export class UserComponent implements OnInit {
   search: any;
   search2 = instantsearch(environment2.algolia);
   
-  constructor(private renderer: Renderer) { }
+  constructor(
+    private renderer: Renderer,
+    private location: Location) { }
 
   ngOnInit() {
     const options = environment.algolia;
@@ -25,7 +28,11 @@ export class UserComponent implements OnInit {
 
     this.search.addWidget(
       searchBox({
-        container: '#search-box'
+        container: '#search-box',
+        cssClasses: {
+          root: 'app-search-box',
+          input: 'app-search-box-input'
+      }
       })
     );
 
@@ -36,7 +43,12 @@ export class UserComponent implements OnInit {
           {value: 5, label: 'Show me 5 results', default: true},
           {value: 10, label: 'Show me 10 results'},
           {value: 15, label: 'Show me 15 results'},
-        ]
+        ],
+        cssClasses: {
+          root: 'app-hits-per-page',
+          select: 'app-hits-per-page-select',
+          item: 'app-hits-per-page-item'
+        }
       })
     );
     
@@ -50,21 +62,40 @@ export class UserComponent implements OnInit {
                 `<ng-template>
                   <div class="is-hits-root">
                     <ul>
-                      <img style="width:100px;" src={{img}}></br>
+                      <img src={{img}}>
+                      <span>
                         <a href='/profile/{{id}}'>User: {{{_highlightResult.name.value}}}</a></br>
                         Email: {{{_highlightResult.email.value }}}</br>
                         {{city}}, {{state}}
+                      </span>
                     </ul>
                   </div>
                 </ng-template>`
         },
-        escapeHits: true
+        escapeHits: true,
+        cssClasses: {
+          root: 'app-hits',
+          empty: 'app-hits-empty',
+          item: 'app-hits-item'
+        }
       })
     );
 
     this.search.addWidget(
       pagination({
-        container: '#pagination'
+        container: '#pagination',
+        cssClasses: {
+          root: 'app-pagination',
+          item: 'app-pagination-item',
+          link: 'app-pagination-link',
+          page: 'app-pagination-page',
+          previous: 'app-pagination-previous',
+          next: 'app-pagination-next',
+          first: 'app-pagination-first',
+          last: 'app-pagination-last',
+          active: 'app-pagination-active',
+          disabled: 'app-pagination-disabled'
+        }
       })
     );
 
@@ -79,7 +110,11 @@ export class UserComponent implements OnInit {
 
    this.search2.addWidget(
     searchBox({
-      container: '#search-box'
+      container: '#search-box',
+      cssClasses: {
+        root: 'app-search-box',
+        input: 'app-search-box-input'
+      }
     })
   );
 
@@ -90,7 +125,12 @@ export class UserComponent implements OnInit {
         {value: 5, label: 'Show me 5 results', default: true},
         {value: 10, label: 'Show me 10 results'},
         {value: 15, label: 'Show me 15 results'},
-      ]
+      ],  
+      cssClasses: {
+        root: 'app-hits-per-page',
+        select: 'app-hits-per-page-select',
+        item: 'app-hits-per-page-item'
+      }
     })
   );
     
@@ -110,13 +150,30 @@ export class UserComponent implements OnInit {
                   </div>
                 </ng-template>`
         },
-        escapeHits: true
+        escapeHits: true,
+        cssClasses: {
+          root: 'app-hits',
+          empty: 'app-hits-empty',
+          item: 'app-hits-item'
+        }
       })
     );
 
     this.search2.addWidget(
       pagination({
-        container: '#pagination2'
+        container: '#pagination2',
+        cssClasses: {
+          root: 'app-pagination',
+          item: 'app-pagination-item',
+          link: 'app-pagination-link',
+          page: 'app-pagination-page',
+          previous: 'app-pagination-previous',
+          next: 'app-pagination-next',
+          first: 'app-pagination-first',
+          last: 'app-pagination-last',
+          active: 'app-pagination-active',
+          disabled: 'app-pagination-disabled'
+        }
       })
     );
 
@@ -131,7 +188,11 @@ export class UserComponent implements OnInit {
 
     this.search.addWidget(
       searchBox({
-        container: '#search-box'
+        container: '#search-box',
+        cssClasses: {
+          root: 'app-search-box',
+          input: 'app-search-box-input'
+        }
       })
     );
 
@@ -142,7 +203,12 @@ export class UserComponent implements OnInit {
           {value: 5, label: 'Show me 5 results', default: true},
           {value: 10, label: 'Show me 10 results'},
           {value: 15, label: 'Show me 15 results'},
-        ]
+        ],
+        cssClasses: {
+          root: 'app-hits-per-page',
+          select: 'app-hits-per-page-select',
+          item: 'app-hits-per-page-item'
+        }
       })
     );
       
@@ -156,21 +222,40 @@ export class UserComponent implements OnInit {
                   `<ng-template>
                       <div class="is-hits-root">
                       <ul>
-                        <img style="width:100px;" src={{img}}></br>
+                        <img src={{img}}>
+                        <span>
                           <a href='/profile/{{id}}'>User: {{{_highlightResult.name.value}}}</a></br>
                           Email: {{{_highlightResult.email.value }}}</br>
                           {{city}}, {{state}}
+                        </span>  
                       </ul>
                       </div>
                     </ng-template>`
           },
-          escapeHits: true
+          escapeHits: true,
+          cssClasses: {
+            root: 'app-hits',
+            empty: 'app-hits-empty',
+            item: 'app-hits-item'
+          }
         })
       );
 
       this.search.addWidget(
         pagination({
-          container: '#pagination'
+          container: '#pagination',
+          cssClasses: {
+            root: 'app-pagination',
+            item: 'app-pagination-item',
+            link: 'app-pagination-link',
+            page: 'app-pagination-page',
+            previous: 'app-pagination-previous',
+            next: 'app-pagination-next',
+            first: 'app-pagination-first',
+            last: 'app-pagination-last',
+            active: 'app-pagination-active',
+            disabled: 'app-pagination-disabled'
+          }
         })
       );
 
