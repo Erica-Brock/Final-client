@@ -10,6 +10,15 @@ import { MatchingComponent } from './views/matching/matching.component';
 import { SearchComponent } from './forms/search/search.component';
 import { OktaService } from './services/okta.service';
 import { ProfileComponent } from './views/profile/profile.component';
+import { MapComponent } from './map/map.component';
+import { AgmCoreModule } from '@agm/core';
+import { JobComponent } from './views/job/job.component';
+import { JobsService } from "./services/jobs.service";
+import { UsersService } from './services/users.service';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { PaymentComponent } from './views/payment/payment.component';
+
 
 const routes: Routes = [
 
@@ -29,10 +38,17 @@ const routes: Routes = [
   {
     path: "profile/:id",
     component: ProfileComponent
+  },
+  {
+    path: "job/:id",
+    component: JobComponent
+  },
+  {
+    path: "payment",
+    component: PaymentComponent
   }
 ]
-import { MapComponent } from './map/map.component';
-import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +58,10 @@ import { AgmCoreModule } from '@agm/core';
     MatchingComponent,
     SearchComponent,
     MapComponent,
-    ProfileComponent
+    ProfileComponent,
+    JobComponent,
+    PaymentComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -50,6 +69,8 @@ import { AgmCoreModule } from '@agm/core';
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyCD9OJOP9rkatl5IE0F42UjystaJYS-rBI',
       libraries: [
@@ -57,7 +78,7 @@ import { AgmCoreModule } from '@agm/core';
       ]
     }),
   ],
-  providers: [OktaService],
+  providers: [OktaService, UsersService, JobsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

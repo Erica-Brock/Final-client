@@ -1,13 +1,16 @@
 <div class="user-search">
   <header>
+    <button #button (click)="searchSwitch()">Search Jobs</button>
+    <button #button2 (click)="searchUsers()">Search Users</button>
     <div id="search-box">
-      <!-- <input id="search-input" placeholder="Search for products"> -->
-      <!-- We use a specific placeholder in the input to guides users in their search. -->
     </div>
   </header>
   <main>
     <div id="hitsPer"></div>
+    <div id="hitsPer2"></div>
     <div id="hits"></div>
+    <div id="hits2"></div>
     <div id="pagination"></div>
+    <div id="pagination2"></div>
   </main>
 </div>
