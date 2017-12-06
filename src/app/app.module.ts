@@ -20,6 +20,8 @@ import { HttpModule } from '@angular/http';
 import { PaymentComponent } from './views/payment/payment.component';
 import { LoginformComponent } from './forms/loginform/loginform.component';
 import { SigninService } from './services/signin/signin.service';
+import { InfoComponent } from './views/info/info.component';
+import {MaterializeModule} from './materialize/materialize.module';
 
 
 const routes: Routes = [
@@ -28,6 +30,10 @@ const routes: Routes = [
     path: '', 
     redirectTo: "signin",
     pathMatch: 'full' 
+  },
+  {
+    path: "info",
+    component: InfoComponent
   },
   {
     path: "signin",
@@ -66,10 +72,12 @@ const routes: Routes = [
     ProfileComponent,
     JobComponent,
     PaymentComponent,
-    LoginformComponent
+    LoginformComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
+    MaterializeModule,
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
