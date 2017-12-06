@@ -1,11 +1,9 @@
 <div class="container">
   <h1>location</h1>
-  <!-- <div class="form-group">
-      <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
-  </div> -->
-  <!-- <agm-map id="map"[latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map> -->
-  <div #map id="map" style="height: 300px;"></div>
+  <input>
+  <input #search placeholder="Where to">
+ 
+  <div #map id="map"></div>
 <button (click)="calcRoute()">directions</button>
+</div>
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
-import {} from '@types/googlemaps';
+import { } from '@types/googlemaps';
 
 @Component({
   selector: 'app-map',
@@ -15,16 +15,18 @@ export class MapComponent implements OnInit {
   originControl: FormControl;
   zoom: number;
   places: any;
-  job:any = {
-      title: "some job",
-      location: "321 West Smithfield Dr. Dolomite, AL"
-    };
+  job: any = {
+    title: "some job",
+    location: "321 West Smithfield Dr. Dolomite, AL"
+  };
+  myLocation: google.maps.LatLng;
+  mapOptions: any;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
   @ViewChild('map')
   public mapElement: ElementRef;
-
+  infoWindow = new google.maps.InfoWindow
   directionsDisplay = new google.maps.DirectionsRenderer();
   directionsService = new google.maps.DirectionsService();
   map;
@@ -34,97 +36,58 @@ export class MapComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.map= document.getElementById('map')
-    // this.zoom = 4;
-    // this.lat = 39.8282;
-    // this.lng = -98.5795;
-    // this.searchControl = new FormControl();
-    // this.originControl = new FormControl();
-    // this.setCurrentPosition();
-    // this.job = {
-    //   title: "some job",
-    //   location: "321 West Smithfield Dr. Dolomite, AL"
-    // };
-    var birmingham = new google.maps.LatLng(33.543682, -86.779633);
-    var mapOptions = {
-      zoom:7,
-      center: birmingham
+    this.myLocation = new google.maps.LatLng(33.543682, -86.779633);
+    this.mapOptions = {
+      zoom: 7,
+      center: this.myLocation
     }
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+      types: ["address"]
+    })
+    this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
     this.directionsDisplay.setMap(this.map);
+    this.setCurrentPosition();
   }
 
-   calcRoute() {
-      var request = {
-        origin: '1500 first ave north Birmingham, AL',
-        destination: this.job.location,
-        travelMode: google.maps.TravelMode.DRIVING
-      };
-      this.directionsService.route(request, (result, status) => {
-        console.log(result);
-          if (status === google.maps.DirectionsStatus.OK ){
-            this.directionsDisplay.setDirections(result);
-          } else{
-            alert("this shit sucks");
-          }
+  calcRoute() {
+    var request = {
+      origin: '1500 first ave north Birmingham, AL',
+      destination: this.job.location,
+      travelMode: google.maps.TravelMode.DRIVING
+    };
+    this.directionsService.route(request, (result, status) => {
+      console.log(result);
+      if (status === google.maps.DirectionsStatus.OK) {
+        this.directionsDisplay.setDirections(result);
+      } else {
+        alert("this shit sucks");
+      }
+    });
+  }
+  setCurrentPosition() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        var pos: any = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        this.infoWindow.setPosition(pos);
+        this.infoWindow.setContent("Your Current Location");
+        this.infoWindow.open(this.map);
+        this.map.setCenter(pos);
+        this.map.setZoom(15);
+      },()=>{this.locationErrorHandler(true, this.infoWindow, this.map.getCenter());
       });
+    } else{
+      //Browse doesn't have geolocation
+      this.locationErrorHandler(false, this.infoWindow, this.map.getCenter());
     }
-
-    //load Places Autocomplete
-  //   this.mapsAPILoader.load().then(() => {
-  //     let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-  //       types: ["address"]
-  //     });
-
-  //     autocomplete.addListener("place_changed", () => {
-  //       this.ngZone.run(() => {
-  //         //get the place result
-  //         let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
-  //         //verify result
-  //         if (place.geometry === undefined || place.geometry === null) {
-  //           return;
-  //         }
-
-  //         //set latitude, longitude and zoom
-  //         this.lat = place.geometry.location.lat();
-  //         this.lng = place.geometry.location.lng();
-  //         this.zoom = 15;
-  //       });
-  //     });
-  //   });
-  // }
-
-  // private setCurrentPosition() {
-  //   if ("geolocation" in navigator) {
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       this.lat = position.coords.latitude;
-  //       this.lng = position.coords.longitude;
-  //       this.zoom = 15;
-  //     });
-  //   }
-  // }
-  // private getDirection(job) {
-  //   console.log('inside get directions');
-  //     let directions:google.maps.DirectionsService = new google.maps.DirectionsService();
-  //     let display:google.maps.DirectionsRenderer= new google.maps.DirectionsRenderer();
-  
-  //     display.setMap(new google.maps.Map(this.map));
-  
-  //     directions.route({
-  //       origin: {
-  //         lat:this.lat, 
-  //         lng:this.lng
-  //       },
-  //       destination: job.location, 
-  //       travelMode: google.maps.TravelMode.DRIVING
-  //     }, (response, status) =>{
-  
-  //         if (status === google.maps.DirectionsStatus.OK ){
-  //           display.setDirections(response);
-  //         } else{
-  //           alert("this shit sucks");
-  //         }
-  //     });
-  // }
+  }
+  locationErrorHandler(hasGeoLocation, infoWindow, pos){
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(hasGeoLocation ?
+      "Error: The Geolocation service failed. " :
+      "Error: Your browser doesn't support geolocation." );
+    infoWindow.open(this.map);
+  }
 }
