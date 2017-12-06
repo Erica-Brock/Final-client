@@ -22,14 +22,20 @@ export class MapComponent implements OnInit {
   myLocation: google.maps.LatLng;
   mapOptions: any;
 
+
   @ViewChild("search")
   public searchElementRef: ElementRef;
   @ViewChild('map')
   public mapElement: ElementRef;
+  @ViewChild('panel')
+  public panelElement: ElementRef;
+
   infoWindow = new google.maps.InfoWindow
   directionsDisplay = new google.maps.DirectionsRenderer();
   directionsService = new google.maps.DirectionsService();
   map;
+  panel;
+  pos;
 
   constructor(
     private ngZone: NgZone,
@@ -44,14 +50,18 @@ export class MapComponent implements OnInit {
     let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
       types: ["address"]
     })
+    let changeHandler = function(){
+      this.calcRoute(this.directionsService, this.directionsDisplay)
+    };
     this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
     this.directionsDisplay.setMap(this.map);
+    this.directionsDisplay.setPanel(this.panelElement.nativeElement);
     this.setCurrentPosition();
   }
 
   calcRoute() {
     var request = {
-      origin: '1500 first ave north Birmingham, AL',
+      origin: this.pos,
       destination: this.job.location,
       travelMode: google.maps.TravelMode.DRIVING
     };
@@ -59,6 +69,7 @@ export class MapComponent implements OnInit {
       console.log(result);
       if (status === google.maps.DirectionsStatus.OK) {
         this.directionsDisplay.setDirections(result);
+        this.directionsDisplay.setPanel(this.panelElement.nativeElement)
       } else {
         alert("this shit sucks");
       }
@@ -67,14 +78,14 @@ export class MapComponent implements OnInit {
   setCurrentPosition() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        var pos: any = {
+        this.pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        this.infoWindow.setPosition(pos);
+        this.infoWindow.setPosition(this.pos);
         this.infoWindow.setContent("Your Current Location");
         this.infoWindow.open(this.map);
-        this.map.setCenter(pos);
+        this.map.setCenter(this.pos);
         this.map.setZoom(15);
       },()=>{this.locationErrorHandler(true, this.infoWindow, this.map.getCenter());
       });

@@ -3,7 +3,8 @@
   <input>
   <input #search placeholder="Where to">
  
-  <div #map id="map"></div>
-<button (click)="calcRoute()">directions</button>
+  <div #map id="map" class="height map"></div>
+  <div #panel class="height"></div>
+<button (click)="calcRoute(this.directionsService, this.directionsDisplay)">directions</button>
 </div>
 
