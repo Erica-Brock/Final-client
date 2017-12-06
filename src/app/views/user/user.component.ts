@@ -3,6 +3,7 @@ import instantsearch from 'instantsearch.js/es';
 import { searchBox, hits, pagination, hitsPerPageSelector, clearAll } from 'instantsearch.js/es/widgets';
 import { environment, environment2 } from "../../enviroment";
 import { Location } from '@angular/common';
+import { MaterializeModule } from '../../materialize/materialize.module';
 
 @Component({
   selector: 'app-user',

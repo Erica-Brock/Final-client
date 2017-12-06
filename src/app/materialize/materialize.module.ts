@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import {
   MzParallaxModule,
   MzNavbarModule,
-  MzNavbarItemContainerComponent
+  MzNavbarItemContainerComponent,
+  MzButtonModule
 
 } from 'ng2-materialize'
 
@@ -12,11 +13,13 @@ import {
   imports: [
     CommonModule,
     MzParallaxModule,
-    MzNavbarModule
+    MzNavbarModule,
+    MzButtonModule
   ],
   exports: [
     MzParallaxModule,
-    MzNavbarModule
+    MzNavbarModule,
+    MzButtonModule
    
   ]
 })
