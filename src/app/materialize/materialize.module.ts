@@ -4,7 +4,9 @@ import {
   MzParallaxModule,
   MzNavbarModule,
   MzNavbarItemContainerComponent,
-  MzButtonModule
+  MzButtonModule,
+  MzSelectModule,
+  MzInputModule
 
 } from 'ng2-materialize'
 
@@ -14,12 +16,16 @@ import {
     CommonModule,
     MzParallaxModule,
     MzNavbarModule,
-    MzButtonModule
+    MzButtonModule,
+    MzSelectModule,
+    MzInputModule
   ],
   exports: [
     MzParallaxModule,
     MzNavbarModule,
-    MzButtonModule
+    MzButtonModule,
+    MzSelectModule,
+    MzInputModule
    
   ]
 })

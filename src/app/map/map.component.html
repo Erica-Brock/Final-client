@@ -1,9 +1,16 @@
 <div class="container">
   <h1>location</h1>
-  <input>
-  <input #search placeholder="Where to">
-  <div #map id="map" class="height map"></div>
-  <div #panel class="height"></div>
-<button (click)="calcRoute(this.directionsService, this.directionsDisplay)">directions</button>
-</div>
+  <mz-input-container>
+    <mz-select-container>
+      <input mz-input #search placeholder="Current Location">
+      <select #selection mz-select id="options-select" [label]="''" [placeholder]="'select job site'">
+        <option *ngFor="let job of jobs" class="left circle"(click)="select()">{{job.location}}</option>
+      </select>
+    </mz-select-container>
+  </mz-input-container>
 
+  <div #map id="map" class="height map col s6 container"></div>
+  <button (click)="calcRoute()">directions</button>
+  <div #panel class="height col s6 container"></div>
+
+</div>
