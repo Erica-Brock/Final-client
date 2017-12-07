@@ -2,18 +2,19 @@
 
 <div class="user-search">
   <header>
-    <button mz-button flat="true" #button (click)="searchSwitch()">Search Jobs</button>
-    <button mz-button flat="true" #button2 (click)="searchUsers()">Search Users</button>
+    <button mz-button flat="true" #button (click)="switchSearch('JOBS')">Search Jobs</button>
+    <button mz-button flat="true" #button2 (click)="switchSearch('USERS')">Search Users</button>
     <div id="search-box">
     </div>
   </header>
 </div>
   <main>
 
-
-      <div *ngIf="!isJobs" class="app-hits">
-          <ul>
-            <li class="app-hits-item" *ngFor="let hit of state.hits">
+    <ng-container *ngIf="results">
+      <ng-container [ngSwitch]="type">
+          <div class="app-hits" *ngSwitchCase="USERS">
+            <ul>
+              <li class="app-hits-item" *ngFor="let hit of results.hits">
                 <img class="app-hits-img" src="{{hit.img}}">
                 <span>
                   <a [routerLink]="['/profile', hit.id]" >User: {{ hit.name }}</a> <br>
@@ -22,20 +23,21 @@
                 </span>
               </li>
             </ul>
-      </div>
-
-      <div *ngIf="isJobs" class="app-hits">
-          <ul>
-            <li class="app-hits-item" *ngFor="let hit of state.hits">
+          </div>
+          <div class="app-hits" *ngSwitchCase="JOBS">
+            <ul>
+              <li class="app-hits-item" *ngFor="let hit of state.hits">
                 <img class="app-hits-img" src="{{hit.img}}">
                 <span>
                   <a [routerLink]="['/job', hit.id]" >User: {{ hit.title }}</a> <br>
                       {{ hit.name }}
-                  
                 </span>
               </li>
             </ul>
-      </div>
+          </div>
+      </ng-container>
+    </ng-container>
+
 
     <div id="hitsPer"></div>
     <div id="hitsPer2"></div>
