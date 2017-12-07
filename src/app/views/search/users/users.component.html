@@ -1,0 +1,35 @@
+<div class="user-search">
+    <header>
+      <button mz-button flat="true" #button2 (click)="switchSearch('USERS')">Search Users</button>
+      <div id="search-box">
+      </div>
+    </header>
+  </div>
+
+  <button routerLink="/jobsearch">JObs</button>
+
+  
+      <ng-container *ngIf="results">
+        <div class="app-hits">
+          <ul>
+            <li class="app-hits-item" *ngFor="let hit of results.hits">
+              <img class="app-hits-img" src="{{hit.img}}">
+              <span>
+                <a [routerLink]="['/profile', hit.id]" >User: {{ hit.name }}</a> <br>
+                    Email: {{hit.email}}
+                <p>{{hit.city}}, {{hit.state}}</p>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+  
+  
+      <div id="hitsPer"></div>
+      <div id="hitsPer2"></div>
+      <!-- <div id="hits"></div>
+      <div id="hits2"></div> -->
+      <div id="pagination"></div>
+      <div id="pagination2"></div>
+ 
+  

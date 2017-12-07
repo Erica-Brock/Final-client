@@ -1,0 +1,47 @@
+#search-box, #pagination, #hitsPer{
+    text-align: center;
+    margin: 0 auto;
+}
+
+#pagination2, #hitsPer2{
+    text-align: center;
+    margin: 0 auto;
+}
+
+button {
+    margin: 0 5em;
+}
+
+/deep/ .app-search-box-input {
+    padding-left: 40px!important;
+  } 
+  
+.app-hits {
+     margin: 0 5em;
+
+
+     .app-hits-img {
+        width: 100px;
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+
+    .app-hits-item {
+        border-bottom: 3px solid darkgreen;
+
+        span { 
+            display: inline-block;
+            padding-left: 15px;
+            vertical-align: middle;
+        }
+    }
+
+}
+
+/deep/.app-hits-item 
+/deep/.app-pagination {
+    border: none;
+    box-shadow: none;
+}

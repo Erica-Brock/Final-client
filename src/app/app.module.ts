@@ -22,6 +22,8 @@ import { LoginformComponent } from './forms/loginform/loginform.component';
 import { SigninService } from './services/signin/signin.service';
 import { InfoComponent } from './views/info/info.component';
 import {MaterializeModule} from './materialize/materialize.module';
+import { UsersComponent } from './views/search/users/users.component';
+import { JobsComponent } from './views/search/jobs/jobs.component';
 
 
 const routes: Routes = [
@@ -40,8 +42,12 @@ const routes: Routes = [
     component: SigninComponent
   },
   {
-    path: "users",
-    component: UserComponent
+    path: "search",
+    component: UsersComponent
+  },
+  {
+    path: "jobsearch",
+    component: JobsComponent
   },
   {
     path: "profile/:id",
@@ -73,7 +79,9 @@ const routes: Routes = [
     JobComponent,
     PaymentComponent,
     LoginformComponent,
-    InfoComponent
+    InfoComponent,
+    UsersComponent,
+    JobsComponent
   ],
   imports: [
     BrowserModule,
