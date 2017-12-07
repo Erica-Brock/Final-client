@@ -21,11 +21,13 @@ export class MapComponent implements OnInit {
   infoWindow = new google.maps.InfoWindow();
   directionsDisplay = new google.maps.DirectionsRenderer();
   directionsService = new google.maps.DirectionsService();
+  geocoder = new google.maps.Geocoder;
+  // autocomplete = new google.maps.places.Autocomplete()
+  // marker= new google.maps.Marker({ map: map});
   map;
   panel;
   pos;
   jobs;
-  destination: string;
   @ViewChild("search")
   public searchElementRef: ElementRef;
   @ViewChild('map')
@@ -68,9 +70,15 @@ export class MapComponent implements OnInit {
   }
 
   calcRoute() {
+    var startLocation;
+    if(this.searchElementRef.nativeElement.value ===""){
+      startLocation = this.pos
+    }else{
+      startLocation=this.searchElementRef.nativeElement.value
+    }
     var request = {
-      origin: this.pos,
-      destination: `${this.selectElementRef.nativeElement}`,
+      origin: startLocation,
+      destination: `${this.selectElementRef.nativeElement.value}`,
       travelMode: google.maps.TravelMode.DRIVING
     };
     this.directionsService.route(request, (result, status) => {
@@ -78,9 +86,9 @@ export class MapComponent implements OnInit {
         this.directionsDisplay.setDirections(result);
         this.directionsDisplay.setPanel(this.panelElement.nativeElement)
       } else {
-        alert("this shit sucks");
+        alert("please input an accurate address");
       }
-      console.log(this.selectElementRef.nativeElement)
+      console.log(this.selectElementRef.nativeElement.value)
     });
   }
 
@@ -104,6 +112,21 @@ export class MapComponent implements OnInit {
       this.locationErrorHandler(false, this.infoWindow, this.map.getCenter());
     }
   }
+  // setJobMarkers(){
+  //   this.jobs.map((location, i)=>{
+  //     var labels:Array<string>
+  //     for(var e = 0; e>=this.jobs.length; e++){
+  //       labels.push(this.jobs.title[i])
+  //     }
+  //     console.log(labels)
+  //     return this.map.Marker({
+  //       position:this.jobs.location,
+  //       label: labels[i % labels.length],
+  //     });
+  //   })
+  //   console.log("inside")
+  // }
+
 
 
   locationErrorHandler(hasGeoLocation, infoWindow, pos) {
