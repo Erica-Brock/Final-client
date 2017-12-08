@@ -29,6 +29,7 @@ export class BaseSearch {
         if (!!instantsearch) {
             this.widgets.search = searchBox({
                 container: '#search-box',
+                placeholder: '  Jobs,  Users,  Skills,  Locations',
                 cssClasses: {
                 root: 'app-search-box',
                 input: 'app-search-box-input'

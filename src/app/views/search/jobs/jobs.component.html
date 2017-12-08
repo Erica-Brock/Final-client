@@ -1,23 +1,21 @@
 <div class="user-search">
-<header>
-    <button mz-button flat="true" #button (click)="switchSearch('JOBS')">Search Jobs</button>
-    <div id="search-box">
-    </div>
-  </header>
+
+    <header>
+        <button mz-button flat="true" #button routerLink="/search" >Search Users</button>
+        <div id="search-box"></div>
+        <h4>Search for the right job</h4>
+    </header>
 </div>
-
-
-<button routerLink="/search">JObs</button>
-
 
 <ng-container *ngIf="results">
 <div class="app-hits">
     <ul>
       <li class="app-hits-item" *ngFor="let hit of results.hits">
-        <img class="app-hits-img" src="{{hit.img}}">
+
         <span>
-          <a [routerLink]="['/job', hit.id]" >User: {{ hit.title }}</a> <br>
-              {{ hit.name }}
+          <a [routerLink]="['/job', hit.id]" >User: {{ hit.name }}</a> <br>
+              Job Title: {{ hit.title }}<br>
+              Loacation: {{ hit.location }}
         </span>
       </li>
     </ul>
@@ -25,8 +23,6 @@
 </ng-container>
 
   <div id="hitsPer"></div>
-  <div id="hitsPer2"></div>
-  <!-- <div id="hits"></div>
-  <div id="hits2"></div> -->
+
   <div id="pagination"></div>
-  <div id="pagination2"></div>
+
