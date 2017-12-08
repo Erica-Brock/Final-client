@@ -16,4 +16,10 @@ export class UsersService {
   getUser(id: number): Observable<any> {
     return this.http.get(`${UsersService.api}/${id}`)
   }
+  getJobsByProvider(id:number): Observable<any> {
+    return this.http.get(`${UsersService.api}/jobs/accepted/${id}`)
+  }
+  getSkillsByUser(id:number): Observable<any>{
+    return this.http.get(`${UsersService.api}/skills/${id}`)
+  }
 }

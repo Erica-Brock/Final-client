@@ -1,0 +1,7 @@
+@mixin green-hex-background{
+    background-image:$nav-background; 
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: 100%;
+    margin: 0 auto;
+}
