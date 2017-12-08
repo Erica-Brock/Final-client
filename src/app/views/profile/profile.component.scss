@@ -1,0 +1,18 @@
+.height{
+    height:10em;
+    position: relative;
+}
+img{
+    display:block;
+    margin:0 auto;
+    position: relative;
+    bottom: 2.5em;
+    z-index: 1;
+   
+}
+card-content{
+  z-index:0;
+}
+.center-text{
+    text-align: center;
+}

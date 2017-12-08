@@ -1,6 +1,52 @@
-<p>
-  profile works!
-</p>
+<!-- this is the page that the logged in user will see -->
 <ng-container *ngIf="!!user">
-  <h1>{{user.name}}</h1>
+  <div class="border container">
+
+    <mz-card class="center-text green-hex height">
+      <mz-card-content class="img">
+        <img [src]="user.img">
+      </mz-card-content>
+    </mz-card>
+    <mz-card class="center-text info-card">
+      <mz-card-title>
+        <p>{{user.name}}</p>
+        <p>{{user.city}}, {{user.state}}</p>
+      </mz-card-title>
+      <mz-card-content> {{user.bio}} </mz-card-content>
+    </mz-card>
+    <mz-card>
+
+    </mz-card>
+
+    <ng-container *ngIf="bookedJobs.length > 0">
+      <mz-card class="center-text"*ngFor="let job of bookedJobs"(click)="this.goToJob(job)">
+        <mz-card-title>{{job.title}}</mz-card-title>
+        <mz-card-content>{{job.description}}</mz-card-content>
+      </mz-card>
+    </ng-container>
+    <ng-container *ngIf="completedJobs.length > 0">
+      <mz-card class="center-text"*ngFor="let job of completedJobs">
+        <mz-card-title>{{job.title}}</mz-card-title>
+        <mz-card-content>{{job.description}}</mz-card-content>
+      </mz-card>
+    </ng-container>
+<ng-container *ngIf ="reviews.length >0">
+  <mz-card class="center-text"*ngFor="let review of reviews">
+<mz-card-content>
+  {{review.review}}
+</mz-card-content>
+  </mz-card>
+</ng-container>
+<ng-container *ngIf ="reviews.length === 0">
+    <mz-card>
+  <mz-card-content>
+You have no reviews
+  </mz-card-content>
+    </mz-card>
+  </ng-container>
+
+
+
+  </div>
+
 </ng-container>

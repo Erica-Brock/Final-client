@@ -14,6 +14,7 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import { JobComponent } from './views/job/job.component';
+import { ReviewsService } from './services/reviews.service'
 import { JobsService } from "./services/jobs.service";
 import { UsersService } from './services/users.service';
 import { HttpModule } from '@angular/http';
@@ -94,6 +95,7 @@ const routes: Routes = [
     HttpClientModule,
   ],
   providers: [
+    ReviewsService,
     UsersService, 
     JobsService,
     BrowserAnimationsModule,
