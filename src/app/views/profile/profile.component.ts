@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import{ MaterializeModule } from '../../materialize/materialize.module'
 import { ReviewsService } from '..//../services/reviews.service'
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -27,7 +28,8 @@ id:number;
     private userSvc: UsersService,
     private reviewSvc: ReviewsService,
     private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -63,7 +65,12 @@ checkStatus():void{
     }
   }
 }
+// updateUser(){
+//   this.userSvc.UpdateUser(this.id, this.user)
+//   .subscribe
+// }
 goToJob(job):void{
-  console.log(job)
+  console.log(this.user)
+  this.router.navigateByUrl(`/job/${job.job_id}`)
 }
 }

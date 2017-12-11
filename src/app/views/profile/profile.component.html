@@ -12,9 +12,15 @@
         <p>{{user.name}}</p>
         <p>{{user.city}}, {{user.state}}</p>
       </mz-card-title>
-      <mz-card-content> {{user.bio}} </mz-card-content>
+      <mz-card-content> {{user.bio}} <button>edit</button></mz-card-content>
     </mz-card>
-    <mz-card>
+    <mz-card class="info-card" >
+      <mz-card-content>
+        <div class="row">
+            <div *ngFor="let skill of skills" class="col s12 m6 l2 skill-box">{{skill.skill}}</div>
+        </div>
+
+      </mz-card-content>
 
     </mz-card>
 
