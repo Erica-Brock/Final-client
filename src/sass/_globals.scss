@@ -4,3 +4,9 @@
 .border{
     border: 1px solid $border-color;
 }
+.selected{
+    background-color:$selected-color;
+}
+.deselected{
+    background-color:$deselected-color;
+}
