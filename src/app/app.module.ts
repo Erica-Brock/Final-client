@@ -17,6 +17,7 @@ import { JobComponent } from './views/job/job.component';
 import { ReviewsService } from './services/reviews.service'
 import { JobsService } from "./services/jobs.service";
 import { UsersService } from './services/users.service';
+import { SkillsService } from './services/skills.service'
 import { HttpModule } from '@angular/http';
 import { PaymentComponent } from './views/payment/payment.component';
 import { LoginformComponent } from './forms/loginform/loginform.component';
@@ -114,7 +115,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     HttpClientModule,
     BrowserModule,
     SigninService,
-    ChatService
+    ChatService,
+    SkillsService
   ],
   bootstrap: [AppComponent]
 })
