@@ -5,9 +5,10 @@ import { Location } from "@angular/common";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
-import{ MaterializeModule } from '../../materialize/materialize.module'
-import { ReviewsService } from '..//../services/reviews.service'
-import { Router } from '@angular/router'
+import{ MaterializeModule } from '../../materialize/materialize.module';
+import { ReviewsService } from '..//../services/reviews.service';
+import { Router } from '@angular/router';
+import {SkillsService } from "../../services/skills.service";
 
 
 @Component({
@@ -22,9 +23,12 @@ completedJobs:Array<any> =[];
 bookedJobs:Array<any> = [];
 reviews:Array<any> = [];
 skills:Array<any> = [];
+mySkills:Array<number> =[];
+skillOptions: Array<any> = [];
 id:number;
   constructor(
     private http: HttpClient,
+    private skillsSvc: SkillsService,
     private userSvc: UsersService,
     private reviewSvc: ReviewsService,
     private location: Location,
@@ -47,12 +51,18 @@ id:number;
       this.userSvc.getSkillsByUser(this.id)
         .subscribe((skills)=>{
           this.skills = skills;
-          console.log(this.skills)
+          for(var i=0; i>this.skills.length; i++){
+            this.mySkills.push()
+          }
         })
 
       this.reviewSvc.getReviewByReciever(this.id)
         .subscribe((reviews)=>{
           this.reviews = reviews;
+        })
+      this.skillsSvc.getSkills()
+        .subscribe((allSkills)=>{
+          this.skillOptions=allSkills;
         })
     });
   }
@@ -65,10 +75,17 @@ checkStatus():void{
     }
   }
 }
-// updateUser(){
-//   this.userSvc.UpdateUser(this.id, this.user)
-//   .subscribe
-// }
+select(skill){
+  var isSkill= this.skills.some(function(check){
+    return check.skill===skill.skill;
+  })
+  if(isSkill){
+    console.log(skill)
+  } else{
+    this.mySkills.push(skill.id);
+    console.log(this.mySkills)
+  }
+}
 goToJob(job):void{
   console.log(this.user)
   this.router.navigateByUrl(`/job/${job.job_id}`)
