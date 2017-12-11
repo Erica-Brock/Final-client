@@ -1,10 +1,40 @@
-<ng-container *ngFor="let chat of chats">
-  <h1>Chatroom {{chat.id}}</h1>
-  <ng-container *ngFor="let message of messages">
-    <h5>{{message.message}}</h5>
-  </ng-container>
-</ng-container>
-<form novalidate [formGroup]="form" (ngSubmit)="createMessage()">
-    <input matInput formControlName="message" type="text" placeholder ="  Get it off your chest">
-        <button mat-button md-button class="btn">Send Message</button>
-</form>
+<div class="module">
+    <header class="top-bar">
+        
+        <div class="left">
+          <span class="icon typicons-message"></span>
+          <h1>Chatroom: {{ chat_id }}</h1>
+        </div>
+        
+        <div class="right">
+          <span class="icon typicons-minus"></span>
+          <span class="icon typicons-times"></span>
+        </div>
+        
+      </header>
+      
+      <ol class="discussion">
+        <ng-container *ngFor="let message of messages">
+          <li class="{{ message.user_type }} === 'self' ? 'self' : 'other'">
+            <div class="messages">
+              <p>{{ message.message }}</p>
+              <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+            </div>
+          </li>
+          <!-- <li class="self">
+            <div class="avatar">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/profile/profile-80_20.jpg" />
+            </div>
+            <div class="messages">
+              <p>That makes sense.</p>
+              <p>It's a pretty small airport.</p>
+              <time datetime="2009-11-13T20:14">37 mins</time>
+            </div>
+          </li> -->
+        </ng-container>
+      </ol>
+      <form novalidate [formGroup]="form" (ngSubmit)="createMessage()">
+          <input formControlName="message" type="text" placeholder ="  Get it off your chest">
+          <button mat-button md-button class="btn">Send Message</button>
+      </form>
+</div>
