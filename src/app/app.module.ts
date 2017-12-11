@@ -27,6 +27,7 @@ import { UsersComponent } from './views/search/users/users.component';
 import { JobsComponent } from './views/search/jobs/jobs.component';
 
 
+
 const routes: Routes = [
 
   {
