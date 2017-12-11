@@ -7,7 +7,8 @@ import {
   MzButtonModule,
   MzSelectModule,
   MzInputModule,
-  MzCardModule
+  MzCardModule,
+  MzModalModule     
 
 } from 'ng2-materialize'
 
@@ -20,7 +21,8 @@ import {
     MzButtonModule,
     MzSelectModule,
     MzInputModule,
-    MzCardModule
+    MzCardModule,
+    MzModalModule 
   ],
   exports: [
     MzParallaxModule,
@@ -28,7 +30,8 @@ import {
     MzButtonModule,
     MzSelectModule,
     MzInputModule,
-    MzCardModule
+    MzCardModule,
+    MzModalModule 
    
   ]
 })
