@@ -20,7 +20,7 @@
 
 
 <header>
-    <h2><a href="#">The Knoll</a></h2>	
+
     
     </header>	
  
@@ -31,10 +31,36 @@
         <h1>The Knoll</h1>
         <h3>A person to person lawncare application</h3>
       </div>
+
+      
     </section>
+    <mz-collapsible
+    [mode]="'expandable'"
+    [onClose]="closeFunctionCallback"
+    [onOpen]="openFunctionCallback"
+    [popout]="true">
+    <mz-collapsible-item [active]="false">
+      <mz-collapsible-item-header>
+        First
+      </mz-collapsible-item-header>
+      <mz-collapsible-item-body>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </mz-collapsible-item-body>
+    </mz-collapsible-item>
+    <mz-collapsible-item [active]="false">
+        <mz-collapsible-item-header>
+          Second
+        </mz-collapsible-item-header>
+        <mz-collapsible-item-body>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </mz-collapsible-item-body>
+      </mz-collapsible-item>
+  </mz-collapsible>
+      
     
-                                 
+    
     <section class="packages">
+      
     <h3 class="title">Instant</h3>		
     <p>Knoll allows you to quickly post your needs to our network or 100s of clients and providers. Our platform greatly increases the chances your work will get done by putting your job directly in the hands of our talented providers.
       Knoll is also very lucrative for our providers, allowing them to save money on advertisment and invest more in there work to better compete on the knoll landscape platform.
@@ -43,6 +69,7 @@
     <ul class="grid">
       <li>
         <i class="fa fa-compass fa-4x"></i>
+        <i class="material-icons">settings_input_antenna</i>
         <h4>Connection</h4>
         <p> Your job posting is instantly posted to our network allowing all providers and clients to see the potential work</p>
       </li>
@@ -66,29 +93,12 @@
     </ul>
     </section>	
     
-    <mz-collapsible
-    [mode]="'expandable'"
-    [onClose]="closeFunctionCallback"
-    [onOpen]="openFunctionCallback"
-    [popout]="true">
-    <mz-collapsible-item [active]="true">
-      <mz-collapsible-item-header>
-        First
-      </mz-collapsible-item-header>
-      <mz-collapsible-item-body>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </mz-collapsible-item-body>
-    </mz-collapsible-item>
-  </mz-collapsible>
+   
     <section class="contact">
       <h3>Learn More</h3>
-      <p>Want to know about upcoming specials, and value deals? Just sign up for our mailing list. We'll keep you informed on new tour packages and offerings. No  spam, we promise!</p>
-      <hr>	
-      <form>
-        <input type="email" />
-        <button class="btn">subscribe now </button>
-      </form>	
+      
     </section>	
+
     <footer>
       <p>Images courtesy of <a href="http://www.photosforclass.com/"></a>Photos for Class</p>
     <p>Visit Goa and have a good time doing it, when you use one or more of our tours...</p>
