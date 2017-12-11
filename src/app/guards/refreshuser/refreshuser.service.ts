@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class RefreshuserService implements CanActivate {
+  state: any;
 
   constructor(
     private svc: SigninService,
     private router: Router) {
-
+      this.state = router.routerState.snapshot;
   }
 
   canActivate() {
@@ -18,7 +19,7 @@ export class RefreshuserService implements CanActivate {
         this.svc.setMe(user);
         return true;
       }, (err) => {
-        this.router.navigate(['/info']);
+        this.router.navigate(['/info'], { queryParams: { returnUrl: 'chat/1' }});
         return false;
       });
   }

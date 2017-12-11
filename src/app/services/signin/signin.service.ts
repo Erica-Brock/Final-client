@@ -1,12 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable()
 export class SigninService {
   static api: string= '/api/auth'
   user: any;
-  constructor(private http: HttpClient) { }
+  returnUrl: string;
 
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.route.queryParams
+      .subscribe((params) => {
+        console.log(params);
+        this.refreshUser = params.refreshUrl;
+      });
+  }
 
   login(user: {email: string, password: string} ){
     return this.http
@@ -14,7 +28,7 @@ export class SigninService {
       .toPromise()
       .then((user) => {
         this.user = user;
-        return this.user;
+        this.router.navigate(['/']);
       }); 
   }
 

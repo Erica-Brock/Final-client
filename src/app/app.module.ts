@@ -41,7 +41,7 @@ const routes: Routes = [
   {path: '', canActivate:[ RefreshuserService ], children: [
     {
       path: '', 
-      redirectTo: "signin",
+      redirectTo: "search",
       pathMatch: 'full' 
     },
     {

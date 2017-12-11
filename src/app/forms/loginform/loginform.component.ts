@@ -31,11 +31,7 @@ export class LoginformComponent implements OnInit {
      if(this.loginForm.status === 'VALID'){
        console.log('sending');
       this.svc.login(this.loginForm.value)
-        .then((res) => {
-          console.log('res', res);
-        }, (err) => {
-          console.log('err', err);
-        })
+        .then(() => {});
      }
    }
 
