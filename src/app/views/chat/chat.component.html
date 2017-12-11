@@ -1,6 +1,5 @@
-<div class="module">
-    <header class="top-bar">
-        
+<div class="module close" #module>
+    <header class="top-bar" (click)="toggleChat()"> 
         <div class="left">
           <span class="icon typicons-message"></span>
           <h1>Chatroom: {{ chat_id }}</h1>
@@ -12,29 +11,19 @@
         </div>
         
       </header>
-      
-      <ol class="discussion">
-        <ng-container *ngFor="let message of messages">
-          <li class="{{ message.user_type }} === 'self' ? 'self' : 'other'">
-            <div class="messages">
-              <p>{{ message.message }}</p>
-              <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-            </div>
-          </li>
-          <!-- <li class="self">
-            <div class="avatar">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/profile/profile-80_20.jpg" />
-            </div>
-            <div class="messages">
-              <p>That makes sense.</p>
-              <p>It's a pretty small airport.</p>
-              <time datetime="2009-11-13T20:14">37 mins</time>
-            </div>
-          </li> -->
-        </ng-container>
-      </ol>
-      <form novalidate [formGroup]="form" (ngSubmit)="createMessage()">
-          <input formControlName="message" type="text" placeholder ="  Get it off your chest">
-          <button mat-button md-button class="btn">Send Message</button>
-      </form>
+      <div class="collapse">
+          <ol class="discussion">
+              <ng-container *ngFor="let message of messages">
+                <li class="{{ message.user_type }} === 'self' ? 'self' : 'other'">
+                  <div class="messages">
+                    <p>{{ message.message }}</p>
+                    <time datetime="2009-11-13T20:00">{{ message.name }} • {{ message.since }} min</time>
+                  </div>
+                </li>
+              </ng-container>
+            </ol>
+            <form novalidate [formGroup]="form">
+                <input formControlName="message" (keydown.enter)="createMessage()" type="text" placeholder ="Get it off your chest">
+            </form>
+      </div>
 </div>
