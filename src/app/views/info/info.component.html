@@ -1,13 +1,101 @@
 
 
-<mz-parallax class="paralllax" [height]="600">
-    <mz-navbar navbarClass="test">
-        <a href="#" class="brand-logo">Logo</a>
-        <mz-navbar-item-container [align]="'right'">
-          <mz-navbar-item><app-loginform></app-loginform></mz-navbar-item>
-          <mz-navbar-item><a href="#">Components</a></mz-navbar-item>
-          <mz-navbar-item><a routerLink="js">JavaScript</a></mz-navbar-item>
-        </mz-navbar-item-container>
-      </mz-navbar>
-  <img src="../../../assets/images/grass.jpg">
-</mz-parallax>
+
+
+<!-- <div class="bg"><img src="../../../assets/images/grass.jpg"> </div>
+<div class="parallax">
+  <div class="parallax-group">
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer fill"></div>
+  </div>
+  <div class="content">
+    <h1>Parallax Scrolling</h1>
+    <p>Using only CSS</p>
+  </div>
+</div> -->
+
+
+<header>
+    <h2><a href="#">The Knoll</a></h2>	
+    
+    </header>	
+ 
+    <section class="hero">
+        <app-loginform></app-loginform>
+      <div class="bkg-img" style="background-image:url('https://i.pinimg.com/originals/16/a1/4c/16a14caaa1761939118331c9558ccc37.png');"></div>
+      <div class="hero-content">
+        <h1>The Knoll</h1>
+        <h3>A person to person lawncare application</h3>
+      </div>
+    </section>
+    
+                                 
+    <section class="packages">
+    <h3 class="title">Instant</h3>		
+    <p>Knoll allows you to quickly post your needs to our network or 100s of clients and providers. Our platform greatly increases the chances your work will get done by putting your job directly in the hands of our talented providers.
+      Knoll is also very lucrative for our providers, allowing them to save money on advertisment and invest more in there work to better compete on the knoll landscape platform.
+    </p>
+    <hr>
+    <ul class="grid">
+      <li>
+        <i class="fa fa-compass fa-4x"></i>
+        <h4>Connection</h4>
+        <p> Your job posting is instantly posted to our network allowing all providers and clients to see the potential work</p>
+      </li>
+      <li>
+        <i class="fa fa-camera-retro fa-4x"></i>
+        <h4>Chat</h4>
+        <p>Once you find a client or provider that is right for you, you can instantly begin a conversastion through our chat widget. This creates a more fluid and seamless process.</p>
+      </li>
+      <li>
+        <i class="fa fa-motorcycle fa-4x"></i>
+        <h4>Payment</h4>
+        <p>We allow quick payment processing through our application condensing the dreaded negotion and payment process down to a single click</p>
+      </li>
+      <li>
+        <i class="fa fa-binoculars fa-4x"></i>
+        <h4>All-in-one</h4>
+        <p>Knoll Functions as an all in one application for our providers. It acts as a schedualing planner, quickly finds potential jobs, and once the job is found knoll will bring up directions to that perticular job.
+          Knoll is essential to the modern day Lawn Person
+        </p>
+      </li>
+    </ul>
+    </section>	
+    
+    <mz-collapsible
+    [mode]="'expandable'"
+    [onClose]="closeFunctionCallback"
+    [onOpen]="openFunctionCallback"
+    [popout]="true">
+    <mz-collapsible-item [active]="true">
+      <mz-collapsible-item-header>
+        First
+      </mz-collapsible-item-header>
+      <mz-collapsible-item-body>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </mz-collapsible-item-body>
+    </mz-collapsible-item>
+  </mz-collapsible>
+    <section class="contact">
+      <h3>Learn More</h3>
+      <p>Want to know about upcoming specials, and value deals? Just sign up for our mailing list. We'll keep you informed on new tour packages and offerings. No  spam, we promise!</p>
+      <hr>	
+      <form>
+        <input type="email" />
+        <button class="btn">subscribe now </button>
+      </form>	
+    </section>	
+    <footer>
+      <p>Images courtesy of <a href="http://www.photosforclass.com/"></a>Photos for Class</p>
+    <p>Visit Goa and have a good time doing it, when you use one or more of our tours...</p>
+    <ul>
+      <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+      <li><a href="#"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+      <li><a href="#"><i class="fa fa-snapchat-square fa-2x"></i></a></li>
+    </ul>
+    </footer>	
+                  

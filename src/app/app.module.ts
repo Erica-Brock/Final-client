@@ -34,15 +34,15 @@ import { RefreshuserService } from './guards/refreshuser/refreshuser.service';
 
 
 const routes: Routes = [
+  {
+    path: "info",
+    component: InfoComponent
+  },
   {path: '', canActivate:[ RefreshuserService ], children: [
     {
       path: '', 
-      redirectTo: "signin",
+      redirectTo: "search",
       pathMatch: 'full' 
-    },
-    {
-      path: "info",
-      component: InfoComponent
     },
     {
       path: "signin",
