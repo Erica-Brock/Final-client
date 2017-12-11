@@ -1,0 +1,10 @@
+<ng-container *ngFor="let chat of chats">
+  <h1>Chatroom {{chat.id}}</h1>
+  <ng-container *ngFor="let message of messages">
+    <h5>{{message.message}}</h5>
+  </ng-container>
+</ng-container>
+<form novalidate [formGroup]="form" (ngSubmit)="createMessage()">
+    <input matInput formControlName="message" type="text" placeholder ="  Get it off your chest">
+        <button mat-button md-button class="btn">Send Message</button>
+</form>
