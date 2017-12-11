@@ -1,6 +1,5 @@
-
 import { Component, OnInit } from '@angular/core';
-
+import { SigninService } from './services/signin/signin.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
 
-  constructor() {
+  constructor(private svc: SigninService) {
+
   }
 
   ngOnInit() {
- 
+    this.svc.refreshUser()
+      .then((user) => {
+        this.svc.setMe(user);
+      }, (err) => {
+        console.log('refresh error ', err);
+      });
   }
 }
