@@ -52,7 +52,7 @@ id:number;
         .subscribe((skills)=>{
           this.skills = skills;
           for(var i=0; i>this.skills.length; i++){
-            this.mySkills.push()
+            this.mySkills.push(this.skills[i].id)
           }
         })
 
@@ -79,6 +79,7 @@ select(skill){
   var isSkill= this.skills.some(function(check){
     return check.skill===skill.skill;
   })
+  var isSelected= this.mySkills.includes(skill.id)
   if(isSkill){
     console.log(skill)
   } else{
