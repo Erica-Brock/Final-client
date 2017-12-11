@@ -28,52 +28,54 @@ import { JobsComponent } from './views/search/jobs/jobs.component';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 import { ChatComponent } from './views/chat/chat.component';
 import { ChatService } from './services/chat/chat.service';
+import { RefreshuserService } from './guards/refreshuser/refreshuser.service';
 
 
 
 const routes: Routes = [
-
-  {
-    path: '', 
-    redirectTo: "signin",
-    pathMatch: 'full' 
-  },
-  {
-    path: "info",
-    component: InfoComponent
-  },
-  {
-    path: "signin",
-    component: SigninComponent
-  },
-  {
-    path: "search",
-    component: UsersComponent
-  },
-  {
-    path: "jobsearch",
-    component: JobsComponent
-  },
-  {
-    path: "profile/:id",
-    component: ProfileComponent
-  },
-  {
-    path: "job/:id",
-    component: JobComponent
-  },
-  {
-    path: "payment",
-    component: PaymentComponent
-  },
-  {
-    path: "map",
-    component: MapComponent
-  },
-  {
-    path: "chat/:id",
-    component: ChatComponent
-  }
+  {path: '', canActivate:[ RefreshuserService ], children: [
+    {
+      path: '', 
+      redirectTo: "signin",
+      pathMatch: 'full' 
+    },
+    {
+      path: "info",
+      component: InfoComponent
+    },
+    {
+      path: "signin",
+      component: SigninComponent
+    },
+    {
+      path: "search",
+      component: UsersComponent
+    },
+    {
+      path: "jobsearch",
+      component: JobsComponent
+    },
+    {
+      path: "profile/:id",
+      component: ProfileComponent
+    },
+    {
+      path: "job/:id",
+      component: JobComponent
+    },
+    {
+      path: "payment",
+      component: PaymentComponent
+    },
+    {
+      path: "map",
+      component: MapComponent
+    },
+    {
+      path: "chat/:id",
+      component: ChatComponent
+    }
+  ]}
 ]
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
@@ -114,7 +116,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     HttpClientModule,
     BrowserModule,
     SigninService,
-    ChatService
+    ChatService,
+    RefreshuserService
   ],
   bootstrap: [AppComponent]
 })
