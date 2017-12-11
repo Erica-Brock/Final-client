@@ -37,6 +37,7 @@
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "mdi": "^2.0.46",
+    "ng-socket-io": "^0.2.0",
     "ng-stripe-checkout": "^1.0.2",
     "ng2-materialize": "^1.7.2",
     "react": "^16.2.0",
