@@ -14,27 +14,23 @@ import { HttpClient } from '@angular/common/http';
 export class CreateJobComponent implements OnInit {
 user;
 job;
-form: FormGroup;
+form;
   constructor(
     private router:Router,
     private jobsSvc: JobsService,
     private signinSvc: SigninService,
     private fb: FormBuilder,
-  ) {     
-    this.form =this.fb.group({
-    // client_id: this.user.id,
-    provider_id:"",
-    title:"",
-    description:["", Validators.compose([Validators.required, Validators.maxLength(300)])],
-    location:["", Validators.compose([Validators.required, Validators.maxLength(300)])],
-    status:""
-  })
-  }
+  ) { }
   ngOnInit() {
     this.signinSvc.me().then((user)=>{
       this.user=user
-      console.log("me")
-      console.log (user)
+      this.form =this.fb.group({
+        client_id:this.user.id,
+        provider_id: null,
+        title:"",
+        description:["", Validators.compose([Validators.required, Validators.maxLength(300)])],
+        location:["", Validators.compose([Validators.required, Validators.maxLength(300)])],
+      })  
     })
   }
   createJob():void{
@@ -42,7 +38,7 @@ form: FormGroup;
     this.jobsSvc.createJob(this.job)
     .subscribe((job)=>{
       console.log(job)
-      this.router.navigateByUrl(`/job:${job}`)
+      this.router.navigateByUrl(`/job:${job.id}`)
     })
   }
 }

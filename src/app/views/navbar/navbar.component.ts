@@ -16,8 +16,7 @@ user;
   ) {
 
   }
-
-  ngOnInit() {
+ngOnInit() {
     this.signinSvc.me().then((user)=>{
       this.user=user
       console.log("me")

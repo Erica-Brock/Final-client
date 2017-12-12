@@ -40,7 +40,8 @@ export class ChatComponent implements OnInit {
         this.me = me;
         this.svc.getChatsByUser(me.id)
           .subscribe((chats) => {
-            this.chats = chats
+            this.chats = 
+            console.log(chats)
             this.chat_id = chats[0].id
 
             this.svc.getMessagesByChatroom(this.chat_id)

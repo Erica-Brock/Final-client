@@ -1,8 +1,9 @@
-<mz-navbar>
+<mz-navbar navbarClass="border deselected">
   <a  class="brand-logo">The Knoll</a>
   <mz-navbar-item-container [align]="'right'">
     <mz-navbar-item><a routerLink="/profile/:id">Profile</a></mz-navbar-item>
     <mz-navbar-item (click)="CreateJobModal.open()">Post Job</mz-navbar-item>
+    <mz-navbar-item><a routerLink="/home">Home</a></mz-navbar-item>
     <mz-navbar-item><a routerLink="/signin">LogOut</a></mz-navbar-item>
   </mz-navbar-item-container>
 </mz-navbar>
@@ -12,11 +13,12 @@
     Post New Job
   </mz-modal-header>
   <mz-modal-content>
-    <app-create-job></app-create-job>
+    <ng-container *ngIf="!!this.user">
+        <app-create-job></app-create-job>
+    </ng-container>
   </mz-modal-content>
   <mz-modal-footer>
     <button mz-button [flat]="true" mz-modal-close> Cancel</button>
-    <button mz-button [flat]="true" mz-modal-close (click)="createJob()">Submit</button>
   </mz-modal-footer>
 
 </mz-modal>

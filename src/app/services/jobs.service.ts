@@ -16,7 +16,7 @@ export class JobsService {
   getJob(id: number): Observable<any> {
     return this.http.get(`${JobsService.api}/${id}`)
   }
-  createJob(job):Observable<any>{
+  createJob(job): Observable<any> {
     return this.http.post(`${JobsService.api}`, job)
   }
 }

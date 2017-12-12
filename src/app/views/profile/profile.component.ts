@@ -44,6 +44,10 @@ export class ProfileComponent implements OnInit {
       this.user = user;
       console.log("me")
       console.log(user)
+      this.userSvc.getUser(this.user.id)
+        .subscribe((user)=>{
+          this.user=user
+        })
       this.userSvc.getJobsByProvider(this.user.id)
         .subscribe((jobs) => {
           this.jobs = jobs;
