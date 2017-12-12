@@ -11,8 +11,8 @@ export class SkillsService {
   getSkills():Observable<any>{
     return this.http.get(SkillsService.api)
   }
-  // insertUserSkill():Observable<any>{
-  //   return this.http.post(`${SkillsService.api}/`)
-  // }
-
+insertUserSkill(skill):Promise<any>{
+  return this.http.post(SkillsService.api, skill)
+  .toPromise()
+}
 }
