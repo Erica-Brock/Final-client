@@ -7,25 +7,12 @@
   </mz-navbar-item-container>
 </mz-navbar>
 
-<mz-modal #CreateJobModal [fixedFooter]="true" [bottomSheet]="true" [options]="modalOptions">
+<mz-modal #CreateJobModal [fixedFooter]="true" [options]="modalOptions">
   <mz-modal-header>
     Post New Job
   </mz-modal-header>
   <mz-modal-content>
-      <mz-card class="form-card" >
-        <form novalidate [formGroup]="form" >
-          <mz-input-container>
-            <input mx-input matInput placeholder="Title" name="Title" formControlName="title">
-          </mz-input-container>
-          <mz-input-container>
-              <input mx-input matInput placeholder="Location" name="Location" formControlName="location">
-            </mz-input-container>
-          <mz-textarea-container>
-            <textarea mz-textarea placeholder="Desciption" rows="5" formControlName="description"name="description"></textarea>
-          </mz-textarea-container>
-        </form>
-        </mz-card>
-
+    <app-create-job></app-create-job>
   </mz-modal-content>
   <mz-modal-footer>
     <button mz-button [flat]="true" mz-modal-close> Cancel</button>

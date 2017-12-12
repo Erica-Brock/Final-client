@@ -33,6 +33,7 @@ import { RefreshuserService } from './guards/refreshuser/refreshuser.service';
 import { NavbarComponent } from './views/navbar/navbar.component';
 import { UserCardComponent } from './views/user-card/user-card.component';
 import { HomeComponent } from './views/home/home.component';
+import { CreateJobComponent } from './forms/create-job/create-job.component';
 
 
 
@@ -106,7 +107,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     ChatComponent,
     NavbarComponent,
     UserCardComponent,
-    HomeComponent
+    HomeComponent,
+    CreateJobComponent
   ],
   imports: [
     BrowserModule,

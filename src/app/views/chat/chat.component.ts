@@ -8,7 +8,6 @@ import { Socket } from 'ng-socket-io';
 import { MaterializeModule } from "../../materialize/materialize.module"
 import { SigninService } from '../../services/signin/signin.service';
 
-
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
