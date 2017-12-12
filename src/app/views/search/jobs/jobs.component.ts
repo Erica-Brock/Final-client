@@ -6,6 +6,8 @@ import { Location } from '@angular/common';
 import { MaterializeModule } from '../../../materialize/materialize.module';
 import { connectHits } from 'instantsearch.js/es/connectors';
 import { BaseSearch } from '../base';
+import { MzModalService } from 'ng2-materialize';
+import { JobModalComponent } from '../../../modals/job/job.component';
 
 @Component({
   selector: 'app-jobs',
@@ -15,15 +17,34 @@ import { BaseSearch } from '../base';
 export class JobsComponent extends BaseSearch implements OnInit {
   @ViewChild('button') btn: ElementRef;
   @ViewChild('button2') btn2: ElementRef;
+  @ViewChild('jobModal') jobModal: IJob;
+  job$: Promise<any>;
   jobSearch: any;
   type: string = null;
   results: any = null;
 
+  public modalOptions: Materialize.ModalOptions = {
+    dismissible: false, // Modal can be dismissed by clicking outside of the modal
+    opacity: .5, // Opacity of modal background
+    inDuration: 300, // Transition in duration
+    outDuration: 200, // Transition out duration
+    // startingTop: '100%', // Starting top style attribute
+    // endingTop: '10%', // Ending top style attribute
+  };
+
   constructor(
     private renderer: Renderer,
-    private location: Location
+    private location: Location,
+    private modalSvc: MzModalService
   ) {
       super();
+  }
+
+  configureModal(job: any) {
+    console.log(job);
+    this.modalSvc.open(JobModalComponent, {
+      job
+    });
   }
 
   ngOnInit() {
@@ -40,4 +61,8 @@ export class JobsComponent extends BaseSearch implements OnInit {
 
     this.jobSearch.start();
   }
+}
+
+interface IJob extends ElementRef {
+  open?: Function; 
 }
