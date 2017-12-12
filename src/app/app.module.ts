@@ -30,6 +30,9 @@ import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 import { ChatComponent } from './views/chat/chat.component';
 import { ChatService } from './services/chat/chat.service';
 import { RefreshuserService } from './guards/refreshuser/refreshuser.service';
+import { NavbarComponent } from './views/navbar/navbar.component';
+import { UserCardComponent } from './views/user-card/user-card.component';
+import { HomeComponent } from './views/home/home.component';
 
 
 
@@ -41,7 +44,7 @@ const routes: Routes = [
   {path: '', canActivate:[ RefreshuserService ], children: [
     {
       path: '', 
-      redirectTo: "search",
+      redirectTo: "home",
       pathMatch: 'full' 
     },
     {
@@ -75,6 +78,10 @@ const routes: Routes = [
     {
       path: "chat/:id",
       component: ChatComponent
+    },
+    {
+      path:"home",
+      component:HomeComponent
     }
   ]}
 ]
@@ -96,7 +103,10 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     InfoComponent,
     UsersComponent,
     JobsComponent,
-    ChatComponent
+    ChatComponent,
+    NavbarComponent,
+    UserCardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

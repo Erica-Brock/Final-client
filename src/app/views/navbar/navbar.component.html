@@ -1,0 +1,35 @@
+<mz-navbar>
+  <a  class="brand-logo">The Knoll</a>
+  <mz-navbar-item-container [align]="'right'">
+    <mz-navbar-item><a routerLink="/profile/:id">Profile</a></mz-navbar-item>
+    <mz-navbar-item (click)="CreateJobModal.open()">Post Job</mz-navbar-item>
+    <mz-navbar-item><a routerLink="/signin">LogOut</a></mz-navbar-item>
+  </mz-navbar-item-container>
+</mz-navbar>
+
+<mz-modal #CreateJobModal [fixedFooter]="true" [bottomSheet]="true" [options]="modalOptions">
+  <mz-modal-header>
+    Post New Job
+  </mz-modal-header>
+  <mz-modal-content>
+      <mz-card class="form-card" >
+        <form novalidate [formGroup]="form" >
+          <mz-input-container>
+            <input mx-input matInput placeholder="Title" name="Title" formControlName="title">
+          </mz-input-container>
+          <mz-input-container>
+              <input mx-input matInput placeholder="Location" name="Location" formControlName="location">
+            </mz-input-container>
+          <mz-textarea-container>
+            <textarea mz-textarea placeholder="Desciption" rows="5" formControlName="description"name="description"></textarea>
+          </mz-textarea-container>
+        </form>
+        </mz-card>
+
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button [flat]="true" mz-modal-close> Cancel</button>
+    <button mz-button [flat]="true" mz-modal-close (click)="createJob()">Submit</button>
+  </mz-modal-footer>
+
+</mz-modal>

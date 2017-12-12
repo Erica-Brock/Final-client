@@ -9,6 +9,7 @@ import { MaterializeModule } from '../../materialize/materialize.module';
 import { ReviewsService } from '..//../services/reviews.service';
 import { Router } from '@angular/router';
 import { SkillsService } from "../../services/skills.service";
+import { SigninService } from "../../services/signin/signin.service"
 
 
 @Component({
@@ -34,27 +35,26 @@ export class ProfileComponent implements OnInit {
     private reviewSvc: ReviewsService,
     private location: Location,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private signinSvc: SigninService
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.id = params['id'];
-
-      this.userSvc.getUser(this.id)
-        .subscribe(user => this.user = user);
-
-      this.userSvc.getJobsByProvider(this.id)
+    this.signinSvc.me().then((user) => {
+      this.user = user;
+      console.log("me")
+      console.log(user)
+      this.userSvc.getJobsByProvider(this.user.id)
         .subscribe((jobs) => {
           this.jobs = jobs;
           this.checkStatus();
         });
-      this.userSvc.getSkillsByUser(this.id)
+      this.userSvc.getSkillsByUser(this.user.id)
         .subscribe((skills) => {
           this.skills = skills;
         })
 
-      this.reviewSvc.getReviewByReciever(this.id)
+      this.reviewSvc.getReviewByReciever(this.user.id)
         .subscribe((reviews) => {
           this.reviews = reviews;
         })
@@ -62,8 +62,9 @@ export class ProfileComponent implements OnInit {
         .subscribe((allSkills) => {
           this.skillOptions = allSkills;
         })
-    });
+    })
   }
+  // ckeck the status of jobs
   checkStatus(): void {
     for (var i = 0; i < this.jobs.length; i++) {
       if (this.jobs[i].status === "accepted") {
@@ -73,6 +74,7 @@ export class ProfileComponent implements OnInit {
       }
     }
   }
+  // select and deselect skills and push into respective arrays 
   select(skill) {
     var isSkill = this.skills.some(function (check) {
       return check.skill === skill.skill;
@@ -91,6 +93,19 @@ export class ProfileComponent implements OnInit {
     else {
       this.addingSkills.push(skill.id);
     }
+  }
+  submitSkills() {
+    let submit = this.addingSkills.map((id) => {
+      return this.skillsSvc.insertUserSkill(+this.id, +id)
+    })
+    console.log(submit);
+    Promise.all(submit)
+      .then((res) => {
+        console.log('promise done');
+        console.log(res);
+      }, (err) => {
+        console.log(err);
+      });
   }
   goToJob(job): void {
     console.log(this.user)

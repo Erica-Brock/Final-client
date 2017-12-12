@@ -1,5 +1,6 @@
 <!-- this is the page that the logged in user will see -->
 <!-- Header and basic user info -->
+<app-navbar></app-navbar>
 <ng-container *ngIf="!!user">
   <div class="border container">
     <mz-card class="center-text grassy-knoll height">
@@ -42,7 +43,7 @@
       </mz-modal-content>
       <mz-modal-footer>
         <button mz-button [flat]="true" mz-modal-close> Cancel</button>
-        <button mz-button [flat]="true" mz-modal-close>Submit Changes</button>
+        <button mz-button [flat]="true" mz-modal-close (click)="submitSkills()">Submit Changes</button>
       </mz-modal-footer>
 
     </mz-modal>
