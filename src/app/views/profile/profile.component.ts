@@ -102,10 +102,14 @@ export class ProfileComponent implements OnInit {
   submitSkills() {
     console.log(this.addingSkills)
     let submit = this.addingSkills.map((id) => {
-      return this.skillsSvc.insertUserSkill(+this.user.id, +id)
+      return this.skillsSvc.insertUserSkill(+this.user.id, +id)  
     })
-    console.log(submit);
-    Promise.all(submit)
+    let destroy = this.deletingSkills.map((id)=>{
+      return this.skillsSvc.deleteUserSkill(+this.user.id, +id)
+    })
+    let changes= submit.concat(destroy)
+    console.log( changes );
+    Promise.all(changes)
       .then((res) => {
         console.log('promise done');
         console.log(res);

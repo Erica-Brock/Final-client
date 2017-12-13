@@ -16,8 +16,8 @@ insertUserSkill(id, skill):Promise<any>{
   return this.http.post(`${SkillsService.api}/${id}`, {skill_id: skill })
   .toPromise()
 }
-deleteUserSkill(id):Promise<any>{
-  return this.http.delete(`${SkillsService.api}/${id}`)
+deleteUserSkill(id, skill):Promise<any>{
+  return this.http.post(`${SkillsService.api}/skill/${id}`,{skill_id: skill})
   .toPromise()
 }
 }
