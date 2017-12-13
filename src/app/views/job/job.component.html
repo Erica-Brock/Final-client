@@ -1,6 +1,10 @@
-<div class="container">
+<app-navbar></app-navbar>
+<div class="container row">
   <ng-container *ngIf="!!job">
-    <h1>{{job.title}}</h1>
+     <div class="col s12 m6 l6">
+      <p></p>
+     </div>
+     <div class="col s12 m6 l6"></div>
     <app-chat></app-chat>
   </ng-container>
 </div>

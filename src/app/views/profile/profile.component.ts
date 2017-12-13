@@ -70,10 +70,11 @@ export class ProfileComponent implements OnInit {
   }
   // ckeck the status of jobs
   checkStatus(): void {
+    console.log(this.jobs)
     for (var i = 0; i < this.jobs.length; i++) {
-      if (this.jobs[i].status === "accepted") {
+      if (this.jobs[i].isAccepted) {
         this.bookedJobs.push(this.jobs[i]);
-      } else if (this.jobs[i].status === "complete") {
+      } else if (this.jobs[i].isCompleted) {
         this.completedJobs.push(this.jobs[i]);
       }
     }
@@ -99,8 +100,9 @@ export class ProfileComponent implements OnInit {
     }
   }
   submitSkills() {
+    console.log(this.addingSkills)
     let submit = this.addingSkills.map((id) => {
-      return this.skillsSvc.insertUserSkill(+this.id, +id)
+      return this.skillsSvc.insertUserSkill(+this.user.id, +id)
     })
     console.log(submit);
     Promise.all(submit)
