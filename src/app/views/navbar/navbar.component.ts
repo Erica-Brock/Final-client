@@ -9,7 +9,7 @@ import {SigninService} from '../../services/signin/signin.service'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-user;
+  private me$;
 
   constructor(
     private signinSvc: SigninService
@@ -18,12 +18,9 @@ user;
   }
 
   ngOnInit() {
-    this.signinSvc.me().then((user)=>{
-      this.user=user
-      console.log("me")
-      console.log (user)
-    })
-    
+    this.me$ = this.signinSvc.me()
+      .then((me) =>{
+        return me;
+      });
   }
-
 }
