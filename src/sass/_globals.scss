@@ -2,7 +2,7 @@
     @include grassy-knoll-background;
 }
 .border{
-    border: 1px solid $border-color;
+   @include border
 }
 .selected{
     background-color:$selected-color;
@@ -11,6 +11,12 @@
     background-color:$deselected-color;
 }
 .container{
-    width:85%;
+    width:90%;
     margin: 0 auto;
+}
+.center-text{
+    text-align: center;
+}
+.image-contain{
+    object-fit:contain;
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<div>
   <h1>location</h1>
   <mz-input-container>
     <mz-select-container>
@@ -9,9 +9,12 @@
     </mz-select-container>
   </mz-input-container>
 
-  <div #map id="map" class="height map col s6 container"></div>
-  <button (click)="calcRoute()">directions</button>
-  <button (click)="setJobMarkers()">view jobs near you</button>
+  <div #map id="map" class="height map"></div>
+  <div class="row">
+      <button class="col s12 m6 l6" mz-button (click)="calcRoute()">directions</button>
+      <button class="col s12 m6 l6" mz-button (click)="setJobMarkers()">view jobs near you</button>
+  </div>
+
   <div #panel class="height col s6 container"></div>
 
 </div>

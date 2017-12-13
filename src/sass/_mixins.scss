@@ -5,3 +5,7 @@
     background-size: 100%;
     margin: 0 auto;
 }
+@mixin border{
+    border: solid 1px $earth;
+    border-radius: 5px;
+}

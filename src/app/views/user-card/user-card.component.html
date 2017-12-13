@@ -1,3 +1,33 @@
-<p>
-  user-card works!
-</p>
+<ng-container *ngIf="!!this.user">
+<div class="border">
+  <div class="container image-contain">
+      <img [src]="this.user.img">
+  </div>
+  <mz-card class="center-text">
+    <mz-card-title>
+      <p>{{this.user.name}}</p>
+      <p>{{this.user.city}}, {{this.user.state}}</p>
+    </mz-card-title>
+    <mz-card-content>
+      {{this.user.description}}
+    </mz-card-content>
+  </mz-card>
+  <mz-card class="center-text">
+    <mz-card-title>
+      Skills
+    </mz-card-title>
+   <mz-card-content>
+     <div class="row">
+       <div class="height col l6 m6 s12" *ngFor="let skill of skills">
+         {{skill.skill}}
+       </div>
+     </div>
+   </mz-card-content>
+  </mz-card>
+  <mz-card class="center-text">
+      <mz-card-title>
+          Booked Jobs
+      </mz-card-title>
+  </mz-card>
+</div>
+</ng-container>
