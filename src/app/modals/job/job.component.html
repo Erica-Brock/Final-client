@@ -3,12 +3,12 @@
     <h4>{{ job.title }}</h4>
   </mz-modal-header>
   <mz-modal-content>
-    <h5>Provider: {{ job.name }}</h5>
+    <h5>User: {{ job.name }}</h5>
     <h5>Location: {{ job.location }}</h5>
     <p>{{ job.description }}</p>
   </mz-modal-content>
   <mz-modal-footer>
-    <button mz-button [flat]="true" mz-modal-close>Details</button>
-    <button mz-button [flat]="true" mz-modal-close>Book Job</button>
+    <button mz-button [flat]="true" mz-modal-close [routerLink]="['job', job.id]">Details</button>
+    <button mz-button [flat]="true" (click)="book()">Book Job</button>
   </mz-modal-footer>
 </mz-modal>
