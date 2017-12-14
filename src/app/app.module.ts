@@ -47,6 +47,10 @@ const routes: Routes = [
     path: "info",
     component: InfoComponent
   },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
   {path: '', canActivate:[ RefreshuserService ], children: [
     {
       path: '', 
