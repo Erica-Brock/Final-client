@@ -1,5 +1,8 @@
 body{
     background-color:#f9f9f9;
+    button{
+        margin:.3em .2em;
+    }
 }
 .bg-earth{
     background-color: $earth;
@@ -52,11 +55,12 @@ p, h1, h2, h3, h4, h5, h6, span {
     min-height:100%;
     max-width:100%;
     min-width:100%;
-    @include mp0
+    // @include mp0
 }
 .fixed-bottom-left{
     position: fixed;
     top: 99%;
     right: 99%;
 }
+
 
