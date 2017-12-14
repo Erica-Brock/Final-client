@@ -9,12 +9,28 @@ body {
 // imported from https://codepen.io/zavoloklom/pen/Gubja
 
 /*-- signin-card animation ---------------------------------------- */
-.signin-card {
-  -webkit-animation: cardEnter 0.75s ease-in-out 0.5s;
-  animation: cardEnter 0.75s ease-in-out 0.5s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  opacity: 0;
+mz-modal-content {
+  .container {
+    .signin-card {
+      -webkit-animation: cardEnter 0.75s ease-in-out 0.5s;
+      animation: cardEnter 0.75s ease-in-out 0.5s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      opacity: 0;
+      max-width: none;
+      margin: 0;
+      background-color: #fafafa;
+      box-shadow: none;
+    }
+  }
+}
+
+label[for="remember"] {
+  margin: 1em 0;
+}
+
+.sign-in-button {
+  margin: 1em auto 0;
 }
 
 /* -- login paper styles ------------------------------ */
