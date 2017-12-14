@@ -13,6 +13,14 @@ body{
 .bg-lime{
     background-color:$lime;
 }
+.super-container{
+    width:96%;
+    @include mp0
+}
+.container{
+    width:90%;
+    @include mp0
+}
 .grassy-knoll{
     @include grassy-knoll-background;
 }
@@ -25,14 +33,7 @@ body{
 .deselected{
     background-color:$deselected-color;
 }
-.super-container{
-    width:96%;
-    @include mp0
-}
-.container{
-    width:90%;
-    @include mp0
-}
+
 .center-text{
     text-align: center;
 }
@@ -49,11 +50,11 @@ body{
     right: 99%;
 }
 
-mz-card{
-    .bg-earth{
-        background-color:$earth;
-        mz-content{
-            @include mp0;
-        }
-    }
-}
+// mz-card{
+//     .bg-earth{
+//         background-color:$earth;
+//         mz-content{
+//             @include mp0;
+//         }
+//     }
+// }

@@ -5,7 +5,9 @@
       <p>{{job.title}}</p>
       <p>{{job.description}}</p>
       <p>{{client.name}}</p>
-      <img [src]="client.img">
+      <div class="container">
+      <img class="fit"[src]="client.img">
+      </div>
       <p>{{provider.name}}</p>
       <img [src]="provider.img">
   
@@ -13,7 +15,6 @@
      </div>
      <div class="col s12 m6 l6">
         <ng-container>
-            <p>hi</p>
               <mz-radio-button-container>
                   <input mz-radio-button
                     [label]="'not complete'"
@@ -38,6 +39,6 @@
     <button (click)="configureModal(this.client, this.provider, this.user, this.job)">Modal</button>
     
     <app-payment></app-payment>
-    <app-chat></app-chat>
+    <app-chat class="fixed-bottom-left"></app-chat>
   </ng-container>
 </div>
