@@ -16,6 +16,11 @@ export class UsersService {
     return this.http.get(UsersService.api)
   }
 
+  create(user: any) {
+    return this.http.post(UsersService.api, user)
+      .toPromise();
+  }
+
   getUser(id: number): Observable<any> {
     return this.http.get(`${UsersService.api}/${id}`)
   }

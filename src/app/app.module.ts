@@ -39,12 +39,17 @@ import { JobModalComponent } from './modals/job/job.component';
 import { MzInjectionService } from 'ng2-materialize';
 import { UpdateUserComponent } from './modals/updateuser/updateuser.component';
 import { ReviewComponent } from './modals/review/review.component';
+import { SignupComponent } from './views/signup/signup.component';
 
 
 const routes: Routes = [
   {
     path: "info",
     component: InfoComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   },
   {path: '', canActivate:[ RefreshuserService ], children: [
     {
@@ -115,7 +120,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     CreateJobComponent,
     JobModalComponent,
     UpdateUserComponent,
-    ReviewComponent
+    ReviewComponent,
+    SignupComponent
   ],
   entryComponents: [
     JobModalComponent,

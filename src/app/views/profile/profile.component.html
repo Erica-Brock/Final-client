@@ -13,7 +13,7 @@
         <p>{{user.name}}</p>
         <p>{{user.city}}, {{user.state}}</p>
       </mz-card-title>
-      <mz-card-content> {{user.bio}}
+      <mz-card-content id="bio"> {{user.bio}}
         <button mz-button float (click)="configureModal(this.user)">edit</button>
       </mz-card-content>
     </mz-card>
@@ -24,7 +24,7 @@
       </mz-card-title>
       <mz-card-content>
         <div class="row">
-          <div *ngFor="let skill of skills" class="col s12 m6 l4 skill-box">{{skill.skill}}</div>
+          <div *ngFor="let skill of skills" class="col s12 m6 l4 skill-box" style="background-image:url({{skill.img}})">{{skill.skill}}</div>
         </div>
         <button mz-button float (click)="SkillsModal.open()">edit</button>
       </mz-card-content>

@@ -25,39 +25,16 @@
     </header>	
  
     <section class="hero">
-        <app-loginform></app-loginform>
       <div class="bkg-img" style="background-image:url('https://i.pinimg.com/originals/16/a1/4c/16a14caaa1761939118331c9558ccc37.png');"></div>
       <div class="hero-content">
         <h1>The Knoll</h1>
         <h3>A person to person lawncare application</h3>
       </div>
+      <app-loginform></app-loginform>
 
       
     </section>
-    <mz-collapsible
-    [mode]="'expandable'"
-    [onClose]="closeFunctionCallback"
-    [onOpen]="openFunctionCallback"
-    [popout]="true">
-    <mz-collapsible-item [active]="false">
-      <mz-collapsible-item-header>
-        Providers
-      </mz-collapsible-item-header>
-      <mz-collapsible-item-body>
-        Knoll is a platform that allows for lawncare providers to quickly accessc clients and accept jobs all on one dynamic platform that keeps track of jobs and workds as a direct line of comunication to the customer.
-      </mz-collapsible-item-body>
-    </mz-collapsible-item>
-    <mz-collapsible-item [active]="false">
-        <mz-collapsible-item-header>
-          Clients
-        </mz-collapsible-item-header>
-        <mz-collapsible-item-body>
-          Knoll offers clients fast and direct access to trusted and respected lawncare providers. Removing the need to always be on the look out for a good lawncare professional. Knoll puts them right at your finger tips.
-        </mz-collapsible-item-body>
-      </mz-collapsible-item>
-  </mz-collapsible>
-      
-    
+
     
     <section class="packages">
       

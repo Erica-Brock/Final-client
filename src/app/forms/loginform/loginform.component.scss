@@ -5,9 +5,6 @@ body {
     background: #0277bd; // Light Blue 800
 }
 
-/* -- button styles ------------------------------------- */
-// imported from https://codepen.io/zavoloklom/pen/Gubja
-
 /*-- signin-card animation ---------------------------------------- */
 mz-modal-content {
   .container {
@@ -22,6 +19,16 @@ mz-modal-content {
       background-color: #fafafa;
       box-shadow: none;
     }
+  }
+}
+
+.sign-up {
+  color: black;
+}
+
+/deep/ mz-modal {
+  .modal {
+    overflow-y: hidden;
   }
 }
 
