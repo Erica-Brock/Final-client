@@ -7,11 +7,27 @@ img{
     margin:0 auto;
     position: relative;
     bottom: 2.5em;
-    z-index: 1;
+    // z-index: 1;
    
 }
-card-content{
-  z-index:0;
+// card-content{
+//   z-index:0;
+// }
+
+.avatar {
+    height: 12em;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+}
+
+.grassy-knoll {
+    z-index: 99999999;
+}
+
+.info-card {
+    padding: 2em 0 0;
 }
 
 .skills-container {

@@ -79,7 +79,12 @@ export class ChatComponent implements OnInit {
 
   private initializeSocketEvent() {
     this.sock.on('message',(message) => {
-      message.user_type = 'self';
+      if (message.user_id == this.me.id) {
+        message.user_type = 'self';
+      } else {
+        message.user_type = 'other';
+      }
+
       this.messages.push(message);
     });
   }

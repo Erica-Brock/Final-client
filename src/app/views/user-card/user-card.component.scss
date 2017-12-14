@@ -6,6 +6,13 @@
 
 
 .skilltext{
-    font-size: 10px;
-    padding-left:1px;
+    color: white;
+    height: 3em;
+    margin: 0.5em 0;
+    font-size: 3em;
+
+    p {
+        vertical-align: middle;
+        line-height: 3em;
+    }
 }

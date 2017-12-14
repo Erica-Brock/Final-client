@@ -16,14 +16,10 @@
     <mz-card-title>
       Skills
     </mz-card-title>
-   <mz-card-content class="row">
-       <div class=" skilltext border col l6 m6 s12" *ngFor="let skill of skills">
-
-            {{skill.skill}}
-            <img class="fit"src= "../../../assets/images/skillbox-background.png">
-           
+   <mz-card-content>
+       <div class=" skilltext border" *ngFor="let skill of skills" [ngStyle]="{ 'background-image': 'url(' + skill.skillBackground.changingThisBreaksApplicationSecurity + ')' }">
+            <p>{{skill.skill}}</p>
        </div>
-     
    </mz-card-content>
   </mz-card>
   <mz-card class="center-text">
