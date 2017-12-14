@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ElementRef, NgZone, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, Inject, ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { MaterializeModule } from '../materialize/materialize.module'
 
@@ -28,6 +28,8 @@ export class MapComponent implements OnInit {
   panel;
   pos;
   jobs;
+  @Input() nJob;
+  // bRoute= `http://localhost:4200/job/${this.nJob.id}`
   @ViewChild("search")
   public searchElementRef: ElementRef;
   @ViewChild('map')
@@ -36,13 +38,6 @@ export class MapComponent implements OnInit {
   public panelElement: ElementRef;
   @ViewChild('selection')
   public selectElementRef: ElementRef;
-
-  job: any = {
-    title: "some job",
-    location: "321 West Smithfield Dr. Dolomite, AL"
-  };
-
-
 
   constructor(
     private ngZone: NgZone,
@@ -63,6 +58,7 @@ export class MapComponent implements OnInit {
     let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
       types: ["address"]
     })
+    this.setDestination();
 
     // // let changeHandler = function(){
     // //   this.calcRoute(this.directionsService, this.directionsDisplay)
@@ -112,23 +108,6 @@ export class MapComponent implements OnInit {
       this.locationErrorHandler(false, this.infoWindow, this.map.getCenter());
     }
   }
-  // setJobMarkers(){
-  //   this.jobs.map((location, i)=>{
-  //     var labels:Array<string>
-  //     for(var e = 0; e>=this.jobs.length; e++){
-  //       labels.push(this.jobs.title[i])
-  //     }
-  //     console.log(labels)
-  //     return this.map.Marker({
-  //       position:this.jobs.location,
-  //       label: labels[i % labels.length],
-  //     });
-  //   })
-  //   console.log("inside")
-  // }
-
-
-
   locationErrorHandler(hasGeoLocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(hasGeoLocation ?
@@ -136,14 +115,15 @@ export class MapComponent implements OnInit {
       "Error: Your browser doesn't support geolocation.");
     infoWindow.open(this.map);
   }
-
-
   getJobs(): void {
     this.jobsSvc.getJobs()
       .subscribe((response) => this.jobs = response);
   }
-  select():void{
-    console.log("working")
+  setDestination():void{
+    if(window.location.href!="http://localhost:4200/home"){
+      // this.selectElementRef.nativeElement[0]value=this.nJob.location
+      console.dir(this.selectElementRef.nativeElement)
+    }
   }
 
 
