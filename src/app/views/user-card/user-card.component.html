@@ -1,4 +1,4 @@
-<ng-container *ngIf="!!this.user">
+<ng-container *ngIf="!!this.user && !!jobs">
 <div class=" ">
   <div class="container">
       <img class="fit"[src]="this.user.img">
@@ -29,8 +29,12 @@
   <mz-card class="center-text">
       <mz-card-title>
           Booked Jobs
-          {{this.user.jobs}}
       </mz-card-title>
+      <mz-card-content>
+          <h5>
+              {{this.jobs.length}}
+          </h5>
+      </mz-card-content>
   </mz-card>
 </div>
 </ng-container>

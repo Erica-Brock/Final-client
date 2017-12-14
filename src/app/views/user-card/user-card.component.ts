@@ -12,6 +12,7 @@ import { JobsService } from "../../services/jobs.service";
 })
 export class UserCardComponent implements OnInit {
 user;
+jobs;
 skills: Array<any>;
   constructor(
     private signinSvc: SigninService,
@@ -33,6 +34,10 @@ skills: Array<any>;
       .subscribe((skills) => {
         this.skills = skills;
       })
+      this.userSvc.getJobsByProvider(this.user.id)
+      .subscribe((jobs) => {
+        this.jobs = jobs;
+      });
       
     
     })
