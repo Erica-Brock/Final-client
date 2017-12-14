@@ -9,7 +9,7 @@ import {SigninService} from '../../services/signin/signin.service'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  private me$;
+   me$;
 
   constructor(
     private signinSvc: SigninService

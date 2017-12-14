@@ -36,9 +36,9 @@ form;
   createJob():void{
     this.job=(this.form.value)
     this.jobsSvc.createJob(this.job)
-    .subscribe((job)=>{
-      console.log(job)
-      this.router.navigateByUrl(`/job/${job.id}`)
+    .subscribe((newJob)=>{
+     console.log(newJob)
+      this.router.navigateByUrl(`/job/${newJob.id}`)
     })
   }
 }

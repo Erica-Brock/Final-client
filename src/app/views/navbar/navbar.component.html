@@ -13,7 +13,7 @@
     Post New Job
   </mz-modal-header>
   <mz-modal-content>
-    <ng-container>
+    <ng-container *ngIf="!!me$">
         <app-create-job></app-create-job>
     </ng-container>
   </mz-modal-content>

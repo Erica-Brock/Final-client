@@ -9,6 +9,6 @@
   </mz-modal-content>
   <mz-modal-footer>
     <button mz-button [flat]="true" mz-modal-close [routerLink]="['job', job.id]">Details</button>
-    <button mz-button [flat]="true" (click)="book()">Book Job</button>
+    <button mz-button [flat]="true" (click)="book()"[routerLink]="['job', job.id]">Book Job</button>
   </mz-modal-footer>
 </mz-modal>
