@@ -73,7 +73,7 @@ export class JobComponent implements OnInit {
     }else{
       this.provider={
         name:"Job not booked",
-        img:"",
+        img:"https://www.sonypark360.net/wp-content/uploads/2017/08/profile-pictures.png",
       }
     }
   }
