@@ -23,8 +23,10 @@
         Skills
       </mz-card-title>
       <mz-card-content>
-        <div class="row">
-          <div *ngFor="let skill of skills" class="col s12 m6 l4 skill-box">{{skill.skill}}</div>
+        <div class="skills-container">
+          <div *ngFor="let skill of skills" class="skill-box" [class.selected]="skill.clicked" (click)="skillClicked(skill)" [ngStyle]="{ 'background-image': 'url(' + skill.skillBackground.changingThisBreaksApplicationSecurity + ')' }">
+            <p>{{skill.skill}}</p>
+          </div>
         </div>
         <button mz-button float (click)="SkillsModal.open()">edit</button>
       </mz-card-content>
@@ -35,10 +37,10 @@
         Update Skills
       </mz-modal-header>
       <mz-modal-content>
-        <div class="row">
-              <div class="col s12 m4 l1 skill-box" *ngFor="let skill of skillOptions"(click)="select(skill)">
-                  {{skill.skill}}
-                  </div>
+        <div class="skills-container">
+            <div class="skill-box" *ngFor="let skill of skillOptions" (click)="select(skill)" [ngStyle]="{ 'background-image': 'url(' + skill.img.changingThisBreaksApplicationSecurity + ')' }">
+              <p>{{skill.skill}}</p>
+            </div>
         </div>
       </mz-modal-content>
       <mz-modal-footer>

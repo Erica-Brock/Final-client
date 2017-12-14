@@ -13,10 +13,36 @@ img{
 card-content{
   z-index:0;
 }
-.skill-box{
-    height:5em;
-    background-color: rgb(131, 175, 131);
-    margin:.5em;
-    color: white;
-    text-align: center;
+
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .skill-box {
+        height: 9em;
+        margin: 0.5em 0;
+        box-sizing: border-box;
+        color: white;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        flex-basis: 48%; 
+        position: relative;
+
+        &.selected {
+            
+        }
+        
+        p {
+            position: absolute;
+            top: 50%;
+            font-size: 2em;
+            transform: translateY(-50%);
+            left: 0; 
+            right: 0;
+            text-align: center;
+        }
+    }
 }

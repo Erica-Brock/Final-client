@@ -12,6 +12,8 @@ import { SkillsService } from "../../services/skills.service";
 import { SigninService } from "../../services/signin/signin.service"
 import{ MzModalService } from 'ng2-materialize'
 import {UpdateUserComponent} from "../../modals/updateuser/updateuser.component"
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -28,6 +30,7 @@ export class ProfileComponent implements OnInit {
   deletingSkills: Array<number> = [];
   skillOptions: Array<any> = [];
   id: number;
+
   constructor(
     private http: HttpClient,
     private skillsSvc: SkillsService,
@@ -37,14 +40,13 @@ export class ProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private signinSvc: SigninService,
-    private MzSvc:MzModalService
+    private MzSvc:MzModalService,
+    private santizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
     this.signinSvc.me().then((user) => {
       this.user = user;
-      console.log("me")
-      console.log(user)
       this.userSvc.getUser(this.user.id)
         .subscribe((user)=>{
           this.user=user
@@ -56,6 +58,11 @@ export class ProfileComponent implements OnInit {
         });
       this.userSvc.getSkillsByUser(this.user.id)
         .subscribe((skills) => {
+          skills.forEach((s) => {
+            s.clicked = false;
+            s.skillBackground = this.santizer.bypassSecurityTrustUrl(s.skillBackground);
+          });
+
           this.skills = skills;
         })
 
@@ -65,13 +72,17 @@ export class ProfileComponent implements OnInit {
         })
       this.skillsSvc.getSkills()
         .subscribe((allSkills) => {
+          allSkills.forEach((s) => {
+            s.clicked = false;
+            s.img = this.santizer.bypassSecurityTrustUrl(s.img);
+          });
+
           this.skillOptions = allSkills;
         })
     })
   }
   // ckeck the status of jobs
   checkStatus(): void {
-    console.log(this.jobs)
     for (var i = 0; i < this.jobs.length; i++) {
       if (this.jobs[i].isAccepted) {
         this.bookedJobs.push(this.jobs[i]);
@@ -80,6 +91,11 @@ export class ProfileComponent implements OnInit {
       }
     }
   }
+
+  skillClicked(skill) {
+    skill.clicked = !skill.clicked;
+  }
+
   // select and deselect skills and push into respective arrays 
   select(skill) {
     var isSkill = this.skills.some(function (check) {
