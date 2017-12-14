@@ -1,5 +1,8 @@
 body{
     background-color:#f9f9f9;
+    button{
+        margin:.3em .2em;
+    }
 }
 .bg-earth{
     background-color: $earth;
@@ -13,32 +16,42 @@ body{
 .bg-lime{
     background-color:$lime;
 }
+.super-container{
+    width:96%;
+    @include mp0;
+}
+.container{
+    width:90%;
+    @include mp0;
+}
+.avatar-container{
+    height:25%;
+    width:25%;
+    @include mp0;
+}
 .grassy-knoll{
     @include grassy-knoll-background;
 }
-.border{
-   @include border
-}
+// .border{
+//    @include border
+// }
 .selected{
     background-color:$selected-color;
 }
 .deselected{
     background-color:$deselected-color;
 }
-.super-container{
-    width:96%;
-    @include mp0
-}
-.container{
-    width:90%;
-    @include mp0
-}
+
 .center-text{
     text-align: center;
 }
 
+.outer{
+    background-color:$outer-card;
+}
+
 p, h1, h2, h3, h4, h5, h6, span {
-    font-family: Arial, Helvetica, sans-serif !important;
+    font-family: 'BenchNine', sans-serif !important;
 }
 
 .fit{
@@ -46,7 +59,7 @@ p, h1, h2, h3, h4, h5, h6, span {
     min-height:100%;
     max-width:100%;
     min-width:100%;
-    @include mp0
+    // @include mp0
 }
 .fixed-bottom-left{
     position: fixed;
@@ -54,11 +67,4 @@ p, h1, h2, h3, h4, h5, h6, span {
     right: 99%;
 }
 
-mz-card{
-    .bg-earth{
-        background-color:$earth;
-        mz-content{
-            @include mp0;
-        }
-    }
-}
+

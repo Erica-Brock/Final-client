@@ -2,23 +2,25 @@
 <!-- Header and basic user info -->
 <app-navbar></app-navbar>
 <ng-container *ngIf="!!user">
+ 
   <div class="border container">
     <mz-card class="center-text grassy-knoll height">
       <mz-card-content class="img">
         <img [src]="user.img">
       </mz-card-content>
     </mz-card>
-    <mz-card class="center-text info-card">
-      <mz-card-title>
+    <mz-card class="center-text info-card outer">
+      <mz-card-title >
         <p>{{user.name}}</p>
         <p>{{user.city}}, {{user.state}}</p>
       </mz-card-title>
-      <mz-card-content> {{user.bio}}
+      <mz-card-content id="bio"> 
+          <p>{{user.bio}}</p>
         <button mz-button float (click)="configureModal(this.user)">edit</button>
       </mz-card-content>
     </mz-card>
     <!-- Users Skills -->
-    <mz-card class="info-card">
+    <mz-card class="info-card outer">
       <mz-card-title>
         Skills
       </mz-card-title>
@@ -51,7 +53,7 @@
     </mz-modal>
     <!-- Accepted Jobs list -->
     <ng-container *ngIf="bookedJobs.length > 0">
-      <mz-card>
+      <mz-card class="outer">
         <mz-card-title>
           Booked Jobs
         </mz-card-title>
@@ -100,4 +102,5 @@
       </mz-card>
     </ng-container>
   </div>
+
 </ng-container>

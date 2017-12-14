@@ -4,6 +4,7 @@ import{SigninService}from "../../services/signin/signin.service";
 import{ Router } from "@angular/router";
 import { UsersService } from "../../services/users.service";
 import{} from"../../../assets/images/skillbox-background.png"
+import { JobsService } from "../../services/jobs.service";
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',
@@ -15,7 +16,8 @@ skills: Array<any>;
   constructor(
     private signinSvc: SigninService,
     private router: Router,
-    private userSvc: UsersService
+    private userSvc: UsersService,
+    private jobsvc:JobsService
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,7 @@ skills: Array<any>;
       .subscribe((skills) => {
         this.skills = skills;
       })
+      
     
     })
   }

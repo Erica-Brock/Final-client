@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{MaterializeModule} from "../../materialize/materialize.module"
 
 @Component({
   selector: 'app-payment',

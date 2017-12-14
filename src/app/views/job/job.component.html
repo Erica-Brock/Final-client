@@ -1,43 +1,80 @@
 <app-navbar></app-navbar>
-<div class="container row">
+
+<div class="super-container row">
+
   <ng-container *ngIf="!!job && !!client && !!provider">
-     <div class="col s12 m6 l6">
-      <p>{{job.title}}</p>
-      <p>{{job.description}}</p>
-      <p>{{client.name}}</p>
-      <img [src]="client.img">
-      <p>{{provider.name}}</p>
-      <img [src]="provider.img">
-  
-      <!-- <p>{{}}</p> -->
-     </div>
-     <div class="col s12 m6 l6">
-        <ng-container>
-            <p>hi</p>
+    <mz-card class=" center-text col xl6 l6 m6 s12">
+      <mz-card-content>
+        <mz-card class=" center-text row">
+          <mz-card-title>
+            <h1>{{job.title}}</h1>
+          </mz-card-title>
+          <mz-card-content>
+            <div class="container col s12 l12 m12">
+              <p>{{job.description}}</p>
+            </div>
+          </mz-card-content>
+        </mz-card>
+        <div class="row">
+          <mz-card class=" center-text col s6 m6 l6">
+            <mz-card-title>
+              <p>Client</p>
+              <h2>{{client.name}}</h2>
+            </mz-card-title>
+
+            <mz-card-content>
+              <div class=" mp0 avatar-container">
+                <img class="fit" [src]="client.img">
+              </div>
+            </mz-card-content>
+          </mz-card>
+          <mz-card class=" center-text col s6 m6 l6">
+            <mz-card-title>
+              <p>Provider</p>
+              <h2 >{{provider.name}}</h2>
+            </mz-card-title>
+            <mz-card-content>
+              <div class=" mp0 avatar-container">
+                <img class="fit" [src]="provider.img">
+              </div>
+            </mz-card-content>
+          </mz-card>
+        </div>
+
+
+        <mz-card class="row">
+          <mz-card-title>
+              <p>Job Status</p>
+          </mz-card-title>
+          <mz-card-content class="col s12 m12 l12">
+           
+            <div class="container col s6 m6 l6">
               <mz-radio-button-container>
-                  <input mz-radio-button
-                    [label]="'not complete'"
-                    [withGap]="true"
-                    id="radio-button-id"
-                    name="radio-group"
-                    type="radio">
-                </mz-radio-button-container>
-                <mz-radio-button-container>
-                    <input mz-radio-button
-                      [label]="'completed'"
-                      [withGap]="true"
-                      id="complete"
-                      name="radio-group"
-                      type="radio">
-                  </mz-radio-button-container>
-            
-          </ng-container>
-     </div>
-     <!-- need to add form to set the status to complete-->
-    <!-- review modal -->
-    <button (click)="configureModal(this.client, this.provider, this.user, this.job)">Modal</button>
-    
-    <app-payment></app-payment>
-    <app-chat></app-chat>
+                <input mz-radio-button [label]="'not complete'" [withGap]="true" id="radio-button-id" name="radio-group" type="radio">
+              </mz-radio-button-container>
+            </div>
+            <div class="container col s6 m6 l6">
+
+              <mz-radio-button-container>
+                <input mz-radio-button [label]="'completed'" [withGap]="true" id="complete" name="radio-group" type="radio">
+              </mz-radio-button-container>
+            </div>
+
+          </mz-card-content>
+
+        </mz-card>
+      </mz-card-content>
+      <mz-card-action>
+        <app-payment></app-payment>
+        <button mz-button float class="fit" (click)="configureModal(this.client, this.provider, this.user, this.job)"> Review</button>
+
+      </mz-card-action>
+    </mz-card>
+
+    <app-map class="container col s12 m6 l6"></app-map>
+
+
+
+    <app-chat class="fixed-bottom-left"></app-chat>
   </ng-container>
 </div>
