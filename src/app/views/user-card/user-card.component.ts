@@ -5,6 +5,8 @@ import{ Router } from "@angular/router";
 import { UsersService } from "../../services/users.service";
 import{} from"../../../assets/images/skillbox-background.png"
 import { JobsService } from "../../services/jobs.service";
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',
@@ -18,7 +20,8 @@ skills: Array<any>;
     private signinSvc: SigninService,
     private router: Router,
     private userSvc: UsersService,
-    private jobsvc:JobsService
+    private jobsvc:JobsService,
+    private santizer: DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -32,6 +35,10 @@ skills: Array<any>;
       })
       this.userSvc.getSkillsByUser(this.user.id)
       .subscribe((skills) => {
+        skills.forEach((s) => {
+          s.skillBackground = this.santizer.bypassSecurityTrustUrl(s.skillBackground);
+        });
+
         this.skills = skills;
       })
       this.userSvc.getJobsByProvider(this.user.id)

@@ -6,7 +6,8 @@
   <div class="border container">
     <mz-card class="center-text grassy-knoll height">
       <mz-card-content class="img">
-        <img [src]="user.img">
+        <div class="avatar" [ngStyle]="{ 'background-image': 'url(' + user.img.changingThisBreaksApplicationSecurity + ')' }">
+        </div>
       </mz-card-content>
     </mz-card>
     <mz-card class="center-text info-card outer">

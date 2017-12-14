@@ -49,7 +49,8 @@ export class ProfileComponent implements OnInit {
       this.user = user;
       this.userSvc.getUser(this.user.id)
         .subscribe((user)=>{
-          this.user=user
+          user.img = this.santizer.bypassSecurityTrustUrl(user.img);
+          this.user=user;
         })
       this.userSvc.getJobsByProvider(this.user.id)
         .subscribe((jobs) => {

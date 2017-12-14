@@ -18,7 +18,7 @@ body{
 }
 .super-container{
     width:96%;
-    padding: 1em;
+    padding: 1em !important;
     @include mp0;
 }
 .container{
