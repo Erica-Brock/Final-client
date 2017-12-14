@@ -59,7 +59,6 @@ export class ProfileComponent implements OnInit {
       this.userSvc.getSkillsByUser(this.user.id)
         .subscribe((skills) => {
           skills.forEach((s) => {
-            s.clicked = false;
             s.skillBackground = this.santizer.bypassSecurityTrustUrl(s.skillBackground);
           });
 

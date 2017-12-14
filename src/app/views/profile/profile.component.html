@@ -26,7 +26,7 @@
       </mz-card-title>
       <mz-card-content>
         <div class="skills-container">
-          <div *ngFor="let skill of skills" class="skill-box" [class.selected]="skill.clicked" (click)="skillClicked(skill)" [ngStyle]="{ 'background-image': 'url(' + skill.skillBackground.changingThisBreaksApplicationSecurity + ')' }">
+          <div *ngFor="let skill of skills" class="skill-box" [ngStyle]="{ 'background-image': 'url(' + skill.skillBackground.changingThisBreaksApplicationSecurity + ')' }">
             <p>{{skill.skill}}</p>
           </div>
         </div>
@@ -40,7 +40,8 @@
       </mz-modal-header>
       <mz-modal-content>
         <div class="skills-container">
-            <div class="skill-box" *ngFor="let skill of skillOptions" (click)="select(skill)" [ngStyle]="{ 'background-image': 'url(' + skill.img.changingThisBreaksApplicationSecurity + ')' }">
+            <div class="skill-box" *ngFor="let skill of skillOptions" (click)="skillClicked(skill)" [ngStyle]="{ 'background-image': 'url(' + skill.img.changingThisBreaksApplicationSecurity + ')' }">
+              <div class="overlay" [class.selected]="skill.clicked"></div>
               <p>{{skill.skill}}</p>
             </div>
         </div>

@@ -28,11 +28,22 @@ card-content{
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        flex-basis: 48%; 
+        flex-basis: 49%; 
         position: relative;
 
-        &.selected {
-            
+        .overlay {
+            position: absolute;
+            // z-index: 9999;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            background-color: rgba(112, 109, 109, 0.7);
+
+            &.selected {
+                display: initial;
+            }
         }
         
         p {
