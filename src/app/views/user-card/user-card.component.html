@@ -1,9 +1,9 @@
 <ng-container *ngIf="!!this.user">
-<div class="border">
-  <div class="container image-contain">
-      <img [src]="this.user.img">
+<div class=" ">
+  <div class="container">
+      <img class="fit"[src]="this.user.img">
   </div>
-  <mz-card class="center-text">
+  <mz-card class=" mp0 center-text">
     <mz-card-title>
       <p>{{this.user.name}}</p>
       <p>{{this.user.city}}, {{this.user.state}}</p>
@@ -16,12 +16,14 @@
     <mz-card-title>
       Skills
     </mz-card-title>
-   <mz-card-content>
-     <div class="row">
-       <div class="height col l6 m6 s12" *ngFor="let skill of skills">
-         {{skill.skill}}
+   <mz-card-content class="row">
+       <div class="border col l6 m6 s12" *ngFor="let skill of skills">
+
+            {{skill.skill}}
+            <img class="fit"src= "../../../assets/images/skillbox-background.png">
+           
        </div>
-     </div>
+     
    </mz-card-content>
   </mz-card>
   <mz-card class="center-text">

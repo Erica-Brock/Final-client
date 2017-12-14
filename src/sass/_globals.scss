@@ -1,6 +1,18 @@
 body{
     background-color:#f9f9f9;
 }
+.bg-earth{
+    background-color: $earth;
+}
+.bg-crimson{
+    background-color: $crimson;
+}
+.bg-forest-green{
+    background-color: $forest-green;
+    }
+.bg-lime{
+    background-color:$lime;
+}
 .grassy-knoll{
     @include grassy-knoll-background;
 }
@@ -13,13 +25,35 @@ body{
 .deselected{
     background-color:$deselected-color;
 }
+.super-container{
+    width:96%;
+    @include mp0
+}
 .container{
     width:90%;
-    margin: 0 auto;
+    @include mp0
 }
 .center-text{
     text-align: center;
 }
-.image-contain{
-    object-fit:contain;
+.fit{
+    max-height:100%;
+    min-height:100%;
+    max-width:100%;
+    min-width:100%;
+    @include mp0
+}
+.fixed-bottom-left{
+    position: fixed;
+    top: 99%;
+    right: 99%;
+}
+
+mz-card{
+    .bg-earth{
+        background-color:$earth;
+        mz-content{
+            @include mp0;
+        }
+    }
 }

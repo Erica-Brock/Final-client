@@ -1,12 +1,43 @@
 <app-navbar></app-navbar>
 <div class="container row">
-  <ng-container *ngIf="!!job">
+  <ng-container *ngIf="!!job && !!client && !!provider">
      <div class="col s12 m6 l6">
-      <p></p>
+      <p>{{job.title}}</p>
+      <p>{{job.description}}</p>
+      <p>{{client.name}}</p>
+      <img [src]="client.img">
+      <p>{{provider.name}}</p>
+      <img [src]="provider.img">
+  
+      <!-- <p>{{}}</p> -->
      </div>
-     <div class="col s12 m6 l6"></div>
+     <div class="col s12 m6 l6">
+        <ng-container>
+            <p>hi</p>
+              <mz-radio-button-container>
+                  <input mz-radio-button
+                    [label]="'not complete'"
+                    [withGap]="true"
+                    id="radio-button-id"
+                    name="radio-group"
+                    type="radio">
+                </mz-radio-button-container>
+                <mz-radio-button-container>
+                    <input mz-radio-button
+                      [label]="'completed'"
+                      [withGap]="true"
+                      id="complete"
+                      name="radio-group"
+                      type="radio">
+                  </mz-radio-button-container>
+            
+          </ng-container>
+     </div>
      <!-- need to add form to set the status to complete-->
-     <app-payment></app-payment>
+    <!-- review modal -->
+    <button (click)="configureModal(this.client, this.provider, this.user, this.job)">Modal</button>
+    
+    <app-payment></app-payment>
     <app-chat></app-chat>
   </ng-container>
 </div>

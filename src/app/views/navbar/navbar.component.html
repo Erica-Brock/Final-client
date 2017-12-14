@@ -1,7 +1,7 @@
 <mz-navbar *ngIf="me$ | async; let me;" navbarClass="border deselected">
   <a  class="brand-logo">The Knoll</a>
   <mz-navbar-item-container [align]="'right'">
-    <mz-navbar-item><a [routerLink]="['../profile', me.id]">Profile</a></mz-navbar-item>
+    <mz-navbar-item><a [routerLink]="['/profile', me.id]">Profile</a></mz-navbar-item>
     <mz-navbar-item (click)="CreateJobModal.open()">Post Job</mz-navbar-item>
     <mz-navbar-item><a routerLink="/home">Home</a></mz-navbar-item>
     <mz-navbar-item><a routerLink="/signin">LogOut</a></mz-navbar-item>

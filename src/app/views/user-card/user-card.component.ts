@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import{SigninService}from "../../services/signin/signin.service";
 import{ Router } from "@angular/router";
 import { UsersService } from "../../services/users.service";
+import{} from"../../../assets/images/skillbox-background.png"
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',

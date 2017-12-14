@@ -10,7 +10,8 @@ import {
   MzCardModule,
   MzModalModule,
   MzCollapsibleModule,
-  MzTextareaModule     
+  MzTextareaModule,
+  MzRadioButtonModule   
   
 } from 'ng2-materialize'
 
@@ -26,7 +27,8 @@ import {
     MzCardModule,
     MzModalModule,
     MzCollapsibleModule,
-    MzTextareaModule  
+    MzTextareaModule,
+    MzRadioButtonModule 
   ],
   exports: [
     MzParallaxModule,
@@ -37,7 +39,8 @@ import {
     MzCardModule,
     MzModalModule,
     MzCollapsibleModule,
-    MzTextareaModule
+    MzTextareaModule,
+    MzRadioButtonModule 
    
   ]
 })

@@ -14,7 +14,7 @@
         <p>{{user.city}}, {{user.state}}</p>
       </mz-card-title>
       <mz-card-content> {{user.bio}}
-        <button mz-button float>edit</button>
+        <button mz-button float (click)="configureModal(this.user)">edit</button>
       </mz-card-content>
     </mz-card>
     <!-- Users Skills -->

@@ -10,8 +10,8 @@ import { ReviewsService } from '..//../services/reviews.service';
 import { Router } from '@angular/router';
 import { SkillsService } from "../../services/skills.service";
 import { SigninService } from "../../services/signin/signin.service"
-
-
+import{ MzModalService } from 'ng2-materialize'
+import {UpdateUserComponent} from "../../modals/updateuser/updateuser.component"
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -36,7 +36,8 @@ export class ProfileComponent implements OnInit {
     private location: Location,
     private route: ActivatedRoute,
     private router: Router,
-    private signinSvc: SigninService
+    private signinSvc: SigninService,
+    private MzSvc:MzModalService
   ) { }
 
   ngOnInit(): void {
@@ -120,5 +121,10 @@ export class ProfileComponent implements OnInit {
   goToJob(job): void {
     console.log(this.user)
     this.router.navigateByUrl(`/job/${job.job_id}`)
+  }
+  configureModal(user){
+    this.MzSvc.open(UpdateUserComponent,{
+      user: this.user,
+    });
   }
 }

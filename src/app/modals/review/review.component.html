@@ -1,0 +1,19 @@
+<mz-modal [options]="modalOptions">
+    <mz-modal-header>
+      Leave a Review
+    </mz-modal-header>
+    <mz-modal-content>
+<ng-container *ngIf="!!this.user">
+    <form novalidate [formGroup]="form">
+        <mz-input-container>
+          <input mz-input placeholder="Rating" name="rating" formControlName="rating">
+        </mz-input-container>
+        <mz-textarea-container>
+          <textarea mz-textarea placeholder="Review" rows="5" formControlName="review" name="review"></textarea>
+        </mz-textarea-container>
+        <button mz-button type=submit (click)="createReview()">Submit</button>
+      </form>
+</ng-container>
+    </mz-modal-content>
+  </mz-modal>
+

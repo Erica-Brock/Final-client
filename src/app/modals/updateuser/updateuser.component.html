@@ -1,0 +1,43 @@
+<!-- id:this.user.id,
+name:"",
+password: this.user.password,
+email:["", Validators.compose([Validators.required, Validators.maxLength(300)])],
+city:["", Validators.compose([Validators.required, Validators.maxLength(300)])],
+state:"",
+phone:"",
+bio:"",
+p_img: this.user.img -->
+<ng-container *ngIf="!!user">
+  <mz-modal [options]="modalOptions">
+    <mz-modal-header>
+      Update Profile
+    </mz-modal-header>
+    <mz-modal-content>
+      <form noValidate [formGroup]="form">
+        <mz-input-container>
+          <input #name [placeholder]="this.user.name" mz-input label="name" type="text" formControlName="name">
+        </mz-input-container>
+        <mz-input-container>
+          <input [placeholder]="this.user.password" mz-input label="password" type="text" formControlName="password">
+        </mz-input-container>
+        <mz-input-container>
+          <input [placeholder]="this.user.email" mz-input label="email" type="text" formControlName="email">
+        </mz-input-container>
+        <mz-input-container>
+          <input [placeholder]="this.user.city" mz-input label="city" type="text" formControlName="city">
+        </mz-input-container>
+        <mz-input-container>
+          <input [placeholder]="this.user.state" mz-input label="state" type="text" formControlName="state">
+        </mz-input-container>
+        <mz-input-container>
+          <input [placeholder]="this.user.phone" mz-input label="phone" type="text" formControlName="phone">
+        </mz-input-container>
+        <mz-textarea-container>
+          <textarea mz-textarea [value]="this.user.bio" label="bio" formControlName="bio">
+              </textarea>
+        </mz-textarea-container>
+        <button mz-button float type="submit" (click)="UpdateUser()">Submit Changes</button>
+      </form>
+    </mz-modal-content>
+  </mz-modal>
+</ng-container>

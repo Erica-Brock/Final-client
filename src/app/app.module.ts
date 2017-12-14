@@ -37,6 +37,8 @@ import { CreateJobComponent } from './forms/create-job/create-job.component';
 
 import { JobModalComponent } from './modals/job/job.component';
 import { MzInjectionService } from 'ng2-materialize';
+import { UpdateUserComponent } from './modals/updateuser/updateuser.component';
+import { ReviewComponent } from './modals/review/review.component';
 
 
 const routes: Routes = [
@@ -111,10 +113,14 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     UserCardComponent,
     HomeComponent,
     CreateJobComponent,
-    JobModalComponent
+    JobModalComponent,
+    UpdateUserComponent,
+    ReviewComponent
   ],
   entryComponents: [
-    JobModalComponent
+    JobModalComponent,
+    ReviewComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,

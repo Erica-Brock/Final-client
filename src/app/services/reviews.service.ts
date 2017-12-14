@@ -14,7 +14,10 @@ export class ReviewsService {
   }
 
   getReviewByReciever(id: number): Observable<any> {
-    return this.http.get(`${ReviewsService.api}/receiver/${id}`)
+    return this.http.get(`${ReviewsService.api}/provider/${id}`)
+  }
+  createReview(review): Observable<any>{
+    return this.http.post(ReviewsService.api, review)
   }
 }
 
