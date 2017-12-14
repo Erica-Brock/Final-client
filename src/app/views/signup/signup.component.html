@@ -1,3 +1,21 @@
-<p>
-  signup works!
-</p>
+<div class="sign-up">
+  <h2 class="center-text">Signup to become a member of the Knoll</h2>
+  <form novalidate [formGroup]="form">
+    <mz-input-container>
+      <input mz-input formControlName="name" id="name-input" placeholder="Name" type="text">
+      <input mz-input formControlName="email" id="email-input" placeholder="Email" type="email">
+      <input mz-input formControlName="password" id="password-input" placeholder="Password" type="password">
+      <input mz-input formControlName="city" id="city-input" placeholder="City" type="text">
+      <mz-select-container>
+        <select (change)="onChange($event.target.value)" mz-select id="options-select" [placeholder]="State">
+          <option class="left circle" [value]="state.value" *ngFor="let state of states">{{ state.name }}</option>
+        </select>
+      </mz-select-container>
+      <input mz-input formControlName="phone" id="phone-input" placeholder="Phone" type="number">
+      <mz-textarea-container>  
+        <textarea mz-textarea id="comment-textarea" formControlName="bio" placeholder="Enter your bio (optional)" length="500"></textarea>
+      </mz-textarea-container>
+    </mz-input-container>
+    <button mz-button (click)="signup()">Signup</button>
+  </form>
+</div>
