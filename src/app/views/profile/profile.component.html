@@ -2,7 +2,7 @@
 <!-- Header and basic user info -->
 <app-navbar></app-navbar>
 <ng-container *ngIf="!!user">
- 
+
   <div class="border container">
     <mz-card class="center-text grassy-knoll height">
       <mz-card-content class="img">
@@ -11,12 +11,12 @@
       </mz-card-content>
     </mz-card>
     <mz-card class="center-text info-card outer">
-      <mz-card-title >
+      <mz-card-title>
         <p>{{user.name}}</p>
         <p>{{user.city}}, {{user.state}}</p>
       </mz-card-title>
-      <mz-card-content id="bio"> 
-          <p>{{user.bio}}</p>
+      <mz-card-content id="bio">
+        <p>{{user.bio}}</p>
         <button mz-button float (click)="configureModal(this.user)">edit</button>
       </mz-card-content>
     </mz-card>
@@ -41,10 +41,10 @@
       </mz-modal-header>
       <mz-modal-content>
         <div class="skills-container">
-            <div class="skill-box" *ngFor="let skill of skillOptions" (click)="skillClicked(skill)" [ngStyle]="{ 'background-image': 'url(' + skill.img.changingThisBreaksApplicationSecurity + ')' }">
-              <div class="overlay" [class.selected]="skill.clicked"></div>
-              <p>{{skill.skill}}</p>
-            </div>
+          <div class="skill-box" *ngFor="let skill of skillOptions" (click)="skillClicked(skill)" [ngStyle]="{ 'background-image': 'url(' + skill.img.changingThisBreaksApplicationSecurity + ')' }">
+            <div class="overlay" [class.selected]="skill.clicked"></div>
+            <p>{{skill.skill}}</p>
+          </div>
         </div>
       </mz-modal-content>
       <mz-modal-footer>
@@ -83,17 +83,21 @@
         <mz-card-title>
           Reviews
         </mz-card-title>
-        <mz-card-content>
-          <div>
-            <mz-card *ngFor="let review of reviews">
-              <mz-card-title>
-                <mz-card-content>
-                  {{review.review}}
-                </mz-card-content>
-              </mz-card-title>
-            </mz-card>
-          </div>
+        <mz-card-content class="row" *ngFor="let review of reviews">
+          <mz-card class="col s4 m4 l4">
+            <mz-card-title>
+              <p>
+                {{review.clientName}}
+              </p>
+            </mz-card-title>
+          </mz-card>
+          <mz-card class="col s8 m8 l8">
+            <mz-card-title>
+              {{review.review}}
+            </mz-card-title>
+          </mz-card>
         </mz-card-content>
+
       </mz-card>
     </ng-container>
     <ng-container *ngIf="reviews.length === 0">

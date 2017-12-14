@@ -69,6 +69,7 @@ export class ProfileComponent implements OnInit {
       this.reviewSvc.getReviewByReciever(this.user.id)
         .subscribe((reviews) => {
           this.reviews = reviews;
+          console.log(reviews, "this.reviews", this.reviews)
         })
       this.skillsSvc.getSkills()
         .subscribe((allSkills) => {
