@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container row">
   <ng-container *ngIf="!!job && !!client && !!provider">
-     <div class="col s12 m6 l6">
+     <div class=" usertext col s12 m6 l6">
       <p>{{job.title}}</p>
       <p>{{job.description}}</p>
       <p>{{client.name}}</p>
@@ -13,7 +13,7 @@
      </div>
      <div class="col s12 m6 l6">
         <ng-container>
-            <p>hi</p>
+            <p id="progress">Progress</p>
               <mz-radio-button-container>
                   <input mz-radio-button
                     [label]="'not complete'"
@@ -35,7 +35,7 @@
      </div>
      <!-- need to add form to set the status to complete-->
     <!-- review modal -->
-    <button (click)="configureModal(this.client, this.provider, this.user, this.job)">Modal</button>
+    <button (click)="configureModal(this.client, this.provider, this.user, this.job)">Review</button>
     
     <app-payment></app-payment>
     <app-chat></app-chat>

@@ -16,9 +16,9 @@ body{
 .grassy-knoll{
     @include grassy-knoll-background;
 }
-.border{
-   @include border
-}
+// .border{
+//    @include border
+// }
 .selected{
     background-color:$selected-color;
 }

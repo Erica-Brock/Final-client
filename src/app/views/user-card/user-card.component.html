@@ -4,7 +4,7 @@
       <img class="fit"[src]="this.user.img">
   </div>
   <mz-card class=" mp0 center-text">
-    <mz-card-title>
+    <mz-card-title class="name">
       <p>{{this.user.name}}</p>
       <p>{{this.user.city}}, {{this.user.state}}</p>
     </mz-card-title>
@@ -17,7 +17,7 @@
       Skills
     </mz-card-title>
    <mz-card-content class="row">
-       <div class="border col l6 m6 s12" *ngFor="let skill of skills">
+       <div class=" skilltext border col l6 m6 s12" *ngFor="let skill of skills">
 
             {{skill.skill}}
             <img class="fit"src= "../../../assets/images/skillbox-background.png">
