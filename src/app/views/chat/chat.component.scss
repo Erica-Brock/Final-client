@@ -13,6 +13,8 @@
   bottom: 6em;
   width: 300px;
 
+ 
+
   .collapse {
     height: auto;
   }
@@ -22,7 +24,7 @@
     width: 300px;
     height: 0;
     position: absolute;
-    bottom: 3em;
+    bottom: 2em;
   }
   
   .top-bar {
@@ -152,6 +154,7 @@
 
   form {
     input {
+      background-color: white;
       border: 1px solid #e5e5e5;
       width: 99%;
       margin: 0;
